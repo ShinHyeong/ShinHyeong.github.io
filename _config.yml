@@ -17,3 +17,5 @@ author: "ShinHyeong"
 
 # Disqus config
 disqus-shortname: ""
+
+remote_theme: rosario/kasper
