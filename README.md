@@ -1,4 +1,10 @@
 # <img width="60" height="60" alt="blog_logo_rmbg" src="https://github.com/user-attachments/assets/6a7a7fce-27fe-4d29-a5da-ef45087fbe11" /> ShinHyeong's Tech Blog
+### 👨‍💻 About Me
+
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ShinHyeong)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/shinhyeong/)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:[shinhyeong.dev@gmail.com])
+
 <br>
 <br>
 
@@ -23,11 +29,6 @@
 <br>${\textsf{\color{grey}I record and share in-depth insights into backend technologies like Java, Spring Boot, and RDBMS/NoSQL, along with my problem-solving processes.}}$
 
 
-### 👨‍💻 About Me
-
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ShinHyeong)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/shinhyeong/)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:[shinhyeong.dev@gmail.com])
 
 ### 🚀 Running Locally
 
