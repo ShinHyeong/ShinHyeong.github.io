@@ -6,6 +6,7 @@ require "rake/clean"
 require "shellwords"
 require "time"
 require "yaml"
+require 'dotenv/load'
 
 task :default => %i[copyright changelog js version]
 
@@ -208,4 +209,14 @@ end
 
 task :gem do
   sh 'gem build minimal-mistakes-jekyll.gemspec'
+end
+
+desc "Index site with Algolia"
+task :index do
+  puts "Indexing site with Algolia..."
+
+  # .env 파일에서 키를 불러와 환경 변수로 사용
+  system "ALGOLIA_API_KEY=#{ENV['ALGOLIA_API_KEY']} bundle exec jekyll algolia"
+
+  puts "Indexing complete."
 end
