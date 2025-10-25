@@ -114,7 +114,7 @@ analytics:
 # Site Author
 author:
   name             : "ShinHyeong"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/bio_photo.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "I record and share in-depth insights into core backend technologies like Java, Spring Boot, and RDBMS/NoSQL, along with my problem-solving processes."
   location         : "Chuncheon, South Korea"
   email            : 
@@ -125,6 +125,9 @@ author:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/ShinHyeong"
+    - label: "LinkedIn"
+      icon: "fab fa-brands fa-linkedin"
+      url: "https://www.linkedin.com/in/shinhyeong/"
 
 # Site Footer
 footer:
@@ -132,6 +135,9 @@ footer:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/ShinHyeong"
+    - label: "LinkedIn"
+      icon: "fab fa-brands fa-linkedin"
+      url: "https://www.linkedin.com/in/shinhyeong/"
   since: "2025"
 
 
