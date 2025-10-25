@@ -21,7 +21,7 @@ title                    : "ShinHyeong's Tech Blog"
 title_separator          : "|"
 subtitle                 : "Continuous Learning, A Developer's Journey" # site tagline that appears below site title in masthead
 name                     : "ShinHyeong"
-description              : "The tech blog of backend developer ShinHyeong. I record and share in-depth insights into core backend technologies like Java, Spring Boot, and RDBMS/NoSQL, along with my problem-solving processes."
+description              : "The tech blog of backend developer ShinHyeong"
 url                      : "https://shinhyeong.github.io/" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "ShinHyeong/ShinHyeong.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -302,8 +302,8 @@ defaults:
     values:
       layout: single
       author_profile: false
-      read_time: true
-      comments: # true
+      read_time: false
+      comments: true
       share: true
       related: true
       show_date: true
