@@ -131,13 +131,6 @@ author:
 
 # Site Footer
 footer:
-  links:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/ShinHyeong"
-    - label: "LinkedIn"
-      icon: "fab fa-brands fa-linkedin"
-      url: "https://www.linkedin.com/in/shinhyeong/"
   since: "2025"
 
 
@@ -267,10 +260,10 @@ whitelist:
 #  - <base_path>/categories/my-awesome-category/index.html ~> path: /categories/
 #  - <base_path>/my-awesome-category/index.html ~> path: /
 category_archive:
-  type: liquid
+  type: jekyll-archives
   path: /categories/
 tag_archive:
-  type: liquid
+  type: jekyll-archives
   path: /tags/
 # https://github.com/jekyll/jekyll-archives
 jekyll-archives:
