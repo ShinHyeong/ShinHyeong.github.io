@@ -115,7 +115,7 @@ analytics:
 author:
   name             : "ShinHyeong"
   avatar           : "/assets/images/bio_photo.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I record and share in-depth insights into core backend technologies like Java, Spring Boot, and RDBMS/NoSQL, along with my problem-solving processes."
+  bio              : "Java, Spring Boot, RDBMS/NoSQL 등 백엔드 기술에 대해 공부한 내용과 문제 해결 과정을 기록하고 공유합니다.<br>I record and share my study notes for backend technologies, including Java, Spring Boot, and RDBMS/NoSQL and problem-solving processes in my projects."
   location         : "Chuncheon, South Korea"
   email            : 
   links:
