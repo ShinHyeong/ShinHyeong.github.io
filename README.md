@@ -25,7 +25,7 @@
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
 ![RDBMS](https://img.shields.io/badge/RDBMS-4479A1?style=for-the-badge&logo=postgresql&logoColor=white)
 ![NoSQL](https://img.shields.io/badge/NoSQL-D44A3C?style=for-the-badge&logo=mongodb&logoColor=white)
-- Java, Spring Boot, RDBMS/NoSQL 등 백엔드 기술에 대한 깊이 있는 고찰과 문제 해결 과정을 기록하고 공유합니다.
+- Java, Spring Boot, RDBMS/NoSQL 등 백엔드 기술에 대해 공부한 내용과 문제 해결 과정을 기록하고 공유합니다.
 <br>${\textsf{\color{grey}I record and share in-depth insights into backend technologies like Java, Spring Boot, and RDBMS/NoSQL, along with my problem-solving processes.}}$
 
 
