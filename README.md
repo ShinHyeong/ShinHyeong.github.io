@@ -4,7 +4,7 @@
 
 🌟   .  *     .        🌙
   .  * . 🪐
-.  *   .  [Go To My Blog](https://shinhyeong.github.io/)      .      *
+.  *   .  [Visit My Blog](https://shinhyeong.github.io/)      .      *
   .     *🚀 .      ✨    .
 ☄    *    .    🌟
 
