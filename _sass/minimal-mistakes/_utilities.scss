@@ -502,13 +502,28 @@ a.reversefootnote {
   }
 }
 
+//코드블록을 절반으로 줄여줌
+.cb-width-50percent {
+  width: 50%;
+}
+
+.cb-width-70percent {
+  width: 70%;
+}
+
 //이미지를 절반으로 줄어줌
 .img-width-50percent {
   width: 50%;
+  border: 1px solid #ccc;
+  padding: 15px;
+  overflow-x: auto; // For horizontal scrolling if code is too long
 }
 
 .img-width-70percent {
   width: 70%;
+  border: 1px solid #ccc;
+  padding: 15px;
+  overflow-x: auto; // For horizontal scrolling if code is too long
 }
 
 /*
