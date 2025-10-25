@@ -1,7 +1,15 @@
-# ShinHyeong's Tech Blog
+# <img width="60" height="60" alt="blog_logo_rmbg" src="https://github.com/user-attachments/assets/6a7a7fce-27fe-4d29-a5da-ef45087fbe11" /> ShinHyeong's Tech Blog
+<br>
+<br>
 
-[![LICENSE](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/mmistakes/minimal-mistakes/master/LICENSE)
-[![Jekyll](https://img.shields.io/badge/jekyll-%3E%3D%203.7-blue.svg)](https://jekyllrb.com/)
+🌟   .  *     .        🌙
+  .  * . 🪐
+.  *   .  [Go To My Blog](https://shinhyeong.github.io/)      .      *
+  .     *🚀 .      ✨    .
+☄    *    .    🌟
+
+
+<br>
 
 ## Continuous Learning, A Developer's Journey
 
@@ -44,3 +52,6 @@ bundle exec jekyll serve
 
 ### 📜 License
 This blog is built on the [Minimal Mistakes Jekyll theme](https://mmistakes.github.io/minimal-mistakes/) and is licensed under the MIT License.
+
+[![LICENSE](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/mmistakes/minimal-mistakes/master/LICENSE)
+[![Jekyll](https://img.shields.io/badge/jekyll-%3E%3D%203.7-blue.svg)](https://jekyllrb.com/)
