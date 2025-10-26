@@ -1,17 +1,15 @@
 ---
-title: "객체"
+title: "Database"
 layout: archive
-permalink: /tags/object
-taxonomy: object
+permalink: /categories/database
+taxonomy: database
 author_profile: true
 sidebar_main: true
-#redirect_from: #이전주소 입력
-#    - /tags/객체
 ---
 
 {% comment %}
 {% endcomment %}
-{% for post in site.tags['객체'] %}
+{% for post in site.categories['database'] %}
   {% include archive-single.html type="list" %}
 {% endfor %}
 
