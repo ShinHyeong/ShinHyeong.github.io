@@ -1,11 +1,15 @@
 # main links
 main:
+  - title: "Posts"
+    url: /year-archive/
+    description: "Posts by Year"
   - title: "Categories"
     url: /categories/
+    description: "Posts by Category"
   - title: "Tags"
     url: /tags/
-  - title: "By Year"
-    url: /year-archive/
+    description: "Posts by Tag"
+
 
 docs:
   - title: "대목차"
