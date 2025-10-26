@@ -307,3 +307,12 @@ defaults:
       toc_label: "목차"
       sidebar:
         nav: "counts"
+  # _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: categories, tags, archive, posts
+      author_profile: false
+      sidebar:
+        nav: "counts"

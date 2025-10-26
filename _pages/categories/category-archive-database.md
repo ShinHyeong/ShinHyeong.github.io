@@ -2,9 +2,6 @@
 title: "Database"
 layout: archive
 permalink: /categories/database
-taxonomy: database
-author_profile: true
-sidebar_main: true
 ---
 
 {% comment %}
