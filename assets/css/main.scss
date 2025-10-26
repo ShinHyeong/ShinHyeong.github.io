@@ -2,8 +2,77 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 search: false
 ---
-
 @charset "utf-8";
+/*
+ * ==========================================================================
+ * 1. 변수 덮어쓰기 (Variable Overrides)
+ * ==========================================================================
+ *
+ * !default 플래그 없이 여기에 변수 값을 정의하면,
+ * @import 되는 테마의 기본(_variable.scss) 값을 덮어씀
+ */
+
+/* Typography */
+$doc-font-size: 15px; 
+
+/* Breakpoints */
+$x-large: 1280px;
+
+/* Grid */
+$right-sidebar-width-narrow: 250px; 
+$right-sidebar-width: 250px; 
+
+
+/* Color Names */
+$white: #fff;
+$black: #000;
+$gray: #7a8288;
+$dark-gray: mix(#000, $gray, 50%);
+$darker-gray: mix(#000, $gray, 60%);
+$light-gray: mix(#fff, $gray, 50%);
+$lighter-gray: mix(#fff, $gray, 90%);
+
+/* Color Setting */
+$text-color: $dark-gray;
+$muted-text-color: mix(#fff, $text-color, 50%);
+$footer-background-color: $darker-gray;
+
+/*
+ * ==========================================================================
+ * 2. 테마 불러오기 (Import Theme)
+ * ==========================================================================
+ */
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+
+/*
+ * ==========================================================================
+ * 3. 커스텀 스타일 (Custom CSS)
+ * ==========================================================================
+ */
+
+/* 메인 콘텐츠(.page, .archive)와 왼쪽 사이드바 사이에 여백 추가 */
+.archive{
+  padding-inline-start: 2em; 
+}
+.page{
+  padding-inline-start: 2em;
+}
+
+/* 사이드바 전체의 hover 애니메이션 제거 */
+.sidebar {
+    opacity: 1; /* 평소에도 100% 불투명하게 고정 */
+    transition: none; /* 투명도 애니메이션 제거 */
+}
+
+.sidebar:hover {
+opacity: 1;
+}
+
+/* 프로필의 '영어' bio에만 이탤릭체/회색/작은 글씨 적용 */
+.author__bio .bio-eng p{
+  font-style: italic;
+  color: #888;
+  font-size: 0.7em;
+}
