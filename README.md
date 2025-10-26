@@ -30,27 +30,6 @@
 
 <br>
 
-### 🚀 Running Locally
-
-이 블로그를 로컬 환경에서 실행하려면 다음 단계를 따르세요.
-<br>${\textsf{\color{grey}To run this blog locally, follow these steps.}}$
-
-```bash
-# 1. Clone the repository
-git clone [https://github.com/](https://github.com/)[YOUR_GITHUB_ID_HERE]/[YOUR_REPO_NAME_HERE].git
-
-# 2. Navigate to the directory
-cd [YOUR_REPO_NAME_HERE]
-
-# 3. Install dependencies (Ruby & Bundler)
-bundle install
-
-# 4. Run the Jekyll server
-bundle exec jekyll serve
-
-# 5. Visit the address http://127.0.0.1:4000 in your browser.
-```
-
 ### 📜 License
 This blog is built on the [Minimal Mistakes Jekyll theme](https://mmistakes.github.io/minimal-mistakes/) and is licensed under the MIT License.
 
