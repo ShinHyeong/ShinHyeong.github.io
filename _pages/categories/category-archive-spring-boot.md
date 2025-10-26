@@ -2,9 +2,6 @@
 title: "Spring Boot"
 layout: archive
 permalink: /categories/spring-boot
-taxonomy: spring-boot
-author_profile: true
-sidebar_main: true
 ---
 
 {% comment %}

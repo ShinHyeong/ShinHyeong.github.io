@@ -2,8 +2,6 @@
 title: "인스턴스"
 layout: archive
 permalink: /tags/instance
-author_profile: true
-sidebar_main: true
 redirect_from: #이전주소 입력
     - /tags/인스턴스
 ---

@@ -69,7 +69,7 @@ atom_feed:
   path                   : # blank (default) uses feed.xml
   hide                   : true # true, false (default)
 search                   : true # true, false (default)
-search_full_content      : # true, false (default)
+search_full_content      : false # true, false (default)
 search_provider          : algolia # lunr (default), algolia, google
 lunr:
   search_within_pages    : # true, false (default)
@@ -307,3 +307,36 @@ defaults:
       toc_label: "목차"
       sidebar:
         nav: "counts"
+        
+  # _pages
+  - scope:
+      path: "_pages/category-archive.md"
+      type: pages
+    values:
+      author_profile: false
+      sidebar:
+        nav: "counts"
+  - scope:
+      path: "_pages/tags-archive.md"
+      type: pages
+    values:
+      author_profile: false
+  - scope:
+      path: "_pages/year-archive.md"
+      type: pages
+    values:
+      author_profile: false
+
+  - scope:
+      path: "_pages/categories"
+      type: pages
+    values:
+      author_profile: false
+      sidebar:
+        nav: "counts"
+  - scope:
+      path: "_pages/tags"
+      type: pages
+    values:
+      author_profile: false
+  
