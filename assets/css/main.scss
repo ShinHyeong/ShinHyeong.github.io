@@ -22,6 +22,7 @@ $x-large: 1280px;
 $right-sidebar-width-narrow: 250px; 
 $right-sidebar-width: 250px; 
 
+/* animation */
 
 /* Color Names */
 $white: #fff;
@@ -31,12 +32,26 @@ $dark-gray: mix(#000, $gray, 50%);
 $darker-gray: mix(#000, $gray, 60%);
 $light-gray: mix(#fff, $gray, 50%);
 $lighter-gray: mix(#fff, $gray, 90%);
+$jandi-1: #126329;
+$jandi-2: #2EA44E;
+$jandi-3: #4AC26B;
+$jandi-empty: #EFF2F5;
+$jandi-text: #1F2328;
+$jandi-text-2: #59636E;
+$jandi-text-hover: #0769DA;
+$jandi-msg-box: #26292F;
+$swim-1: #2e8bd2;
+$swim-2: #3aa6f9;
+$swim-3: #78bcf0;
 
 /* Color Setting */
-$text-color: $dark-gray;
-$muted-text-color: mix(#fff, $text-color, 50%);
-$footer-background-color: $darker-gray;
-
+$text-color: $jandi-text;
+$muted-text-color: mix(#fff, $text-color, 20%);
+$footer-background-color: $jandi-empty;
+$link-color: $jandi-1;
+$link-color-hover: $jandi-2;
+//$link-color-visited: $link-color;
+$link-color-visited: $jandi-3;
 /*
  * ==========================================================================
  * 2. 테마 불러오기 (Import Theme)
@@ -54,25 +69,56 @@ $footer-background-color: $darker-gray;
 
 /* 메인 콘텐츠(.page, .archive)와 왼쪽 사이드바 사이에 여백 추가 */
 .archive{
-  padding-inline-start: 2em; 
+  padding-inline-start: 4em; 
 }
 .page{
-  padding-inline-start: 2em;
+  padding-inline-start: 1.5em;
 }
 
 /* 사이드바 전체의 hover 애니메이션 제거 */
 .sidebar {
     opacity: 1; /* 평소에도 100% 불투명하게 고정 */
     transition: none; /* 투명도 애니메이션 제거 */
+    margin-top: 2em;
+    &:hover{
+      opacity: 1;
+    }
 }
 
-.sidebar:hover {
-opacity: 1;
+/* 프로필 사진 조정 */
+.author__avatar {
+  margin-bottom: 1em; // 프로필 사진 아래 여백 늘리기
+  img {
+    max-width: 150px; // 기본값 110px보다 크게 설정 (원하는 크기로 조절)
+  }
+}
+
+/*
+ * 프로필의 한국어 bio(.bio-kor) 아래 여백 줄이기
+ * 기본 <p> 태그의 margin-bottom 값을 덮어씁니다.
+ * 기본값 1.3em보다 작은 값으로 조절
+ */
+.author__bio .bio-kor p {
+  margin-bottom: 0.3em;
 }
 
 /* 프로필의 '영어' bio에만 이탤릭체/회색/작은 글씨 적용 */
 .author__bio .bio-eng p{
+  margin-top: 0;
   font-style: italic;
-  color: #888;
+  color: $jandi-text-2; //#888;
   font-size: 0.7em;
 }
+
+.page__footer {
+  color: $jandi-text-2 !important;
+}
+
+/* 블로그 제목(masthead) hover 애니메이션 제거 */
+.site-title{
+  color: $jandi-text !important; //$muted-text-color !important;
+  &:hover{
+    color: $jandi-text !important; //$muted-text-color !important;
+  }
+}
+
