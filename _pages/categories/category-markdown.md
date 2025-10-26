@@ -2,6 +2,7 @@
 title: "Markdown"
 layout: archive
 permalink: /categories/markdown
+taxonomy: markdown
 author_profile: true
 sidebar_main: true
 ---

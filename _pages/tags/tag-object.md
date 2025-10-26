@@ -2,10 +2,11 @@
 title: "객체"
 layout: archive
 permalink: /tags/object
+taxonomy: object
 author_profile: true
 sidebar_main: true
-redirect_from: #이전주소 입력
-    - /tags/객체
+#redirect_from: #이전주소 입력
+#    - /tags/객체
 ---
 
 {% comment %}
