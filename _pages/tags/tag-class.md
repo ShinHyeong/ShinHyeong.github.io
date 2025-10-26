@@ -2,10 +2,11 @@
 title: "클래스"
 layout: archive
 permalink: /tags/class
+taxonomy: class
 author_profile: true
 sidebar_main: true
-redirect_from: #이전주소 입력
-    - /tags/클래스
+#redirect_from: #이전주소 입력
+#    - /tags/클래스
 ---
 
 {% comment %}
