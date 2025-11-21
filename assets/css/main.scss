@@ -48,10 +48,10 @@ $swim-3: #78bcf0;
 $text-color: $jandi-text;
 $muted-text-color: mix(#fff, $text-color, 20%);
 $footer-background-color: $jandi-empty;
-$link-color: $dark-gray;
-$link-color-hover: $black;
+$link-color: $black;
+$link-color-hover: $jandi-text-hover;
 //$link-color-visited: $link-color;
-$link-color-visited: $gray;
+$link-color-visited: $black;
 /*
  * ==========================================================================
  * 2. 테마 불러오기 (Import Theme)
@@ -89,7 +89,7 @@ $link-color-visited: $gray;
 .author__avatar {
   margin-bottom: 1em; // 프로필 사진 아래 여백 늘리기
   img {
-    max-width: 150px; // 기본값 110px보다 크게 설정 (원하는 크기로 조절)
+    max-width: 200px; // 기본값 110px보다 크게 설정 (원하는 크기로 조절)
   }
 }
 
@@ -116,9 +116,12 @@ $link-color-visited: $gray;
 
 /* 블로그 제목(masthead) hover 애니메이션 제거 */
 .site-title{
+  font-size: 120%;
   color: $jandi-text !important; //$muted-text-color !important;
+  transition: opacity 0.3s ease-in-out;
   &:hover{
     color: $jandi-text !important; //$muted-text-color !important;
+    opacity: 0.8;
   }
 }
 
