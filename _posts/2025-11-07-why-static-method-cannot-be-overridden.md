@@ -1,7 +1,7 @@
 ---
 title:  "컴파일러 vs JVM: static 메소드가 오버라이딩되지 않는 이유"
 categories: java
-tag: [static-method, instance-method, method-overriding, method-overloading]
+excerpt: "static 메소드는 왜 메소드 오버라이딩이 불가할까? 또, 인스턴스 메소드는 왜 메소드 오버로딩이 가능할까?"
 #redirect_from: #이전주소 입력
 #search: false #만약 이 글이 검색되지 않기를 바란다면
 #use_math: true #수식이 필요한 경우만 사용

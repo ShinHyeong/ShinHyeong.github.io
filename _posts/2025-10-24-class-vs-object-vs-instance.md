@@ -4,6 +4,7 @@ categories: java
 tag: [클래스, 객체, 인스턴스]
 redirect_from: #이전주소 입력
     - /java/first
+excerpt : "객체지향에서 많이 사용되는 개념으로 클래스, 객체, 인스턴스가 있다. 이들의 차이는 뭘까?"
 #search: false #만약 이 글이 검색되지 않기를 바란다면
 #use_math: true #수식이 필요한 경우만 사용
 ---
