@@ -4,84 +4,87 @@ layout: default
 
 {% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
   {% include page__hero.html %}
-{% elsif page.header.video.id and page.header.video.provider %}
-  {% include page__hero_video.html %}
 {% endif %}
 
-{% assign breadcrumbs_enabled = site.breadcrumbs %}
-{% if page.breadcrumbs != null %}
-  {% assign breadcrumbs_enabled = page.breadcrumbs %}
-{% endif %}
-{% if page.url != "/" and breadcrumbs_enabled %}
-  {% unless paginator %}
-    {% include breadcrumbs.html %}
-  {% endunless %}
-{% endif %}
+<article class="custom-post" itemscope itemtype="https://schema.org/CreativeWork">
+  <meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">
+  <meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">
+  {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">{% endif %}
+  {% if page.last_modified_at %}<meta itemprop="dateModified" content="{{ page.last_modified_at | date_to_xmlschema }}">{% endif %}
 
-<div id="main" role="main">
-  {% include sidebar.html %}
+  <a href="{{ '/' | relative_url }}" class="back-button group">
+    <div class="icon-wrapper">
+      <i class="fas fa-chevron-left"></i>
+    </div>
+    <span>목록으로 돌아가기</span>
+  </a>
 
-  <article class="page" itemscope itemtype="https://schema.org/CreativeWork"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>
-    {% if page.title %}<meta itemprop="headline" content="{{ page.title | replace: '|', '&#124;' | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
-    {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
-    {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">{% endif %}
-    {% if page.last_modified_at %}<meta itemprop="dateModified" content="{{ page.last_modified_at | date_to_xmlschema }}">{% endif %}
-
-    <div class="page__inner-wrap">
-      {% unless page.header.overlay_color or page.header.overlay_image %}
-        <header>
-          {% if page.title -%}
-          <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="{{ page.url | absolute_url }}" itemprop="url">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</a>
-          </h1>
-          {%- endif %}
-          {% include page__meta.html %}
-        </header>
-      {% endunless %}
-
-      <section class="page__content" itemprop="text">
-        {% if page.toc %}
-          <aside class="sidebar__right {% if page.toc_sticky %}sticky{% endif %}">
-            <nav class="toc">
-              <header><h4 class="nav__title"><i class="fas fa-{{ page.toc_icon | default: 'file-alt' }}"></i> {{ page.toc_label | default: site.data.ui-text[site.locale].toc_label | default: "On this page" }}</h4></header>
-              {% include toc.html sanitize=true html=content h_min=1 h_max=6 class="toc__menu" skip_no_ids=true %}
-            </nav>
-          </aside>
-        {% endif %}
-        {{ content }}
-        {% if page.link %}<div><a href="{{ page.link }}" class="btn btn--primary">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
-      </section>
-
-      <footer class="page__meta">
-        {% if site.data.ui-text[site.locale].meta_label %}
-          <h4 class="page__meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
-        {% endif %}
-        {% include page__taxonomy.html %}
-        {% include page__date.html %}
-      </footer>
-
-      {% if page.share %}{% include social-share.html %}{% endif %}
-
-      {% include post_pagination.html %}
+  <header class="custom-header">
+    <div class="post-meta-row">
+      {% if page.categories[0] %}
+        {% assign category_slug = page.categories[0] | slugify %}
+        <a href="{{ '/categories/#' | relative_url }}{{ category_slug }}" class="category-pill">
+          {{ page.categories[0] }}
+        </a>
+      {% endif %}
+      <span class="meta-item">
+        <i class="far fa-calendar"></i> {{ page.date | date: "%Y.%m.%d" }}
+      </span>
     </div>
 
-    {% if site.comments.provider and page.comments %}
-      {% if jekyll.environment == 'production' %}
-        {% include comments.html %}
-      {% else %}
-        <p>
-          Comments are configured with provider: <strong>{{ site.comments.provider }}</strong>,
-          but are disabled in non-production environments.
-        </p>
-      {% endif %}
-    {% endif %}
-  </article>
+    <h1 class="custom-title" itemprop="headline">
+      {{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}
+    </h1>
 
-  {% comment %}<!-- only show related on a post page when `related: true` -->{% endcomment %}
-  {% if page.id and page.related and site.related_posts.size > 0 %}
-    {% include page__related.html posts=site.related_posts %}
-  {% comment %}<!-- otherwise show recent posts if no related when `related: true` -->{% endcomment %}
-  {% elsif page.id and page.related %}
-    {% include page__related.html posts=site.posts %}
-  {% endif %}
-</div>
+    <div class="summary-box">
+      <div class="summary-header">
+        <div class="summary-title">
+          <i class="fas fa-check-circle"></i>
+          <span>학습목표</span>
+        </div>
+        </div>
+      <p class="summary-content">
+        {% if page.excerpt %}
+          {{ page.excerpt | strip_html }}
+        {% endif %}
+      </p>
+    </div>
+  </header>
+
+  <div class="custom-content prose" itemprop="text">
+    {{ content }}
+  </div>
+
+  <div class="post-navigation-container">
+    {% if page.previous %}
+      <a href="{{ page.previous.url | relative_url }}" class="nav-card prev group">
+        <div class="nav-label">
+          <i class="fas fa-arrow-left"></i> <span>이전 글</span>
+        </div>
+        <div class="nav-title">{{ page.previous.title }}</div>
+      </a>
+    {% else %}
+      <div class="nav-spacer"></div> {% endif %}
+
+    {% if page.next %}
+      <a href="{{ page.next.url | relative_url }}" class="nav-card next group">
+        <div class="nav-label">
+          <span>다음 글</span> <i class="fas fa-arrow-right"></i>
+        </div>
+        <div class="nav-title">{{ page.next.title }}</div>
+      </a>
+    {% else %}
+      <div class="nav-spacer"></div>
+    {% endif %}
+  </div>
+
+  <div class="custom-footer">
+     </div>    
+    {% if page.comments %}
+      <div id="comments" class="page__comments">
+        {% include comments.html %}
+      </div>
+    {% endif %}
+  </div>
+
+</article>
