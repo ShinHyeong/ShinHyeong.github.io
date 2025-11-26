@@ -594,12 +594,13 @@ $link-color-visited: $black;
   .nav-title { color: #f3f4f6; }
   .nav-label { color: #9ca3af; }
 }
+
 /* ==========================================================================
-   Custom Pagination (Medium Size - 80% Scale)
+   Custom Pagination (Compact Size - 60% Scale)
    ========================================================================== */
 
 .custom-pagination {
-  margin-top: 4rem; /* 상단 여백 (3rem -> 4rem) */
+  margin-top: 3rem; /* 위쪽 여백 축소 (5rem -> 3rem) */
   display: flex;
   justify-content: center;
   width: 100%;
@@ -608,7 +609,7 @@ $link-color-visited: $black;
   .pagination-list {
     display: flex;
     align-items: center;
-    gap: 0.4rem; /* 간격 살짝 넓힘 */
+    gap: 0.3rem; /* 버튼 사이 간격 축소 (0.5rem -> 0.3rem) */
     list-style: none;
     padding: 0;
     margin: 0;
@@ -623,13 +624,13 @@ $link-color-visited: $black;
     
     /* 숫자 버튼 스타일 */
     &.number {
-      width: 1.75rem;  /* 80% 크기 (약 28px) */
-      height: 1.75rem;
+      width: 1.5rem;  /* 크기 축소 (2rem -> 1.5rem, 약 24px) */
+      height: 1.5rem;
       border-radius: 50%;
       
-      font-size: 0.8rem; /* 글자 크기 (0.75rem -> 0.8rem) */
-      font-weight: 600;
-      line-height: 1;
+      font-size: 0.75rem; /* 글자 크기 축소 (0.875rem -> 0.75rem) */
+      font-weight: 600;   /* 작아진 만큼 조금 더 두껍게 */
+      line-height: 1;     /* 수직 정렬 보정 */
       
       color: #6b7280;
       background-color: transparent;
@@ -650,5 +651,164 @@ $link-color-visited: $black;
 
     /* 화살표 버튼 스타일 */
     &.arrow {
-      padding: 0.4rem; /* 패딩 살짝 키움 */
+      padding: 0.25rem; /* 패딩 축소 */
       color: #9ca3af;
+      background: transparent;
+
+      &:hover:not(.disabled) {
+        color: #111827;
+      }
+
+      &.disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+      }
+      
+      i { font-size: 0.7rem; } /* 아이콘 크기 축소 */
+    }
+  }
+}
+
+/* 다크 모드 대응 */
+@media (prefers-color-scheme: dark) {
+  .custom-pagination .pagination-link {
+    &.number {
+      color: #9ca3af;
+      
+      &:hover:not(.active) {
+        background-color: #1f2937;
+        color: #f3f4f6;
+      }
+
+      &.active {
+        background-color: #fff;
+        color: #000;
+      }
+    }
+
+    &.arrow {
+      &:hover:not(.disabled) {
+        color: #fff;
+      }
+    }
+  }
+}
+/* ==========================================================================
+   Custom Sidebar Design (Compact Version + Active Box)
+   ========================================================================== */
+
+.custom-sidebar {
+  .categories-section {
+    width: 100%;
+  }
+
+  .categories-title {
+    font-size: 0.7rem; 
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #9ca3af; 
+    margin-bottom: 0.8rem; 
+  }
+
+  .categories-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem; 
+  }
+
+  .category-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    
+    /* Box Styling */
+    padding: 0.35rem 0.5rem; 
+    border-radius: 0.375rem; 
+
+    text-decoration: none !important;
+    transition: all 0.2s;
+    color: #4b5563; 
+
+    .cat-name {
+      font-size: 0.8rem; 
+      font-weight: 500;
+    }
+
+    .cat-count {
+      font-size: 0.7rem; 
+      padding: 0.1rem 0.45rem;
+      border-radius: 9999px;
+      background-color: #f3f4f6; 
+      color: #6b7280; 
+      transition: background-color 0.2s;
+    }
+
+    /* 1. HOVER State: Light Gray Box */
+    &:hover {
+      background-color: #f3f4f6; 
+      color: #111827; 
+      
+      .cat-count {
+        background-color: #ffffff; 
+      }
+    }
+
+    /* 2. ACTIVE State: Colored Box (Current Page) */
+    &.active {
+      font-weight: 700;
+      
+      /* The Colored Box Background */
+      /* Creates a light tint of your theme color */
+      background-color: mix($jandi-text-hover, #fff, 8%); 
+      color: $jandi-text-hover; 
+
+      .cat-count {
+        /* Slightly darker tint for the badge to stand out */
+        background-color: mix($jandi-text-hover, #fff, 15%); 
+        color: darken($jandi-text-hover, 5%); 
+      }
+      
+      /* Ensure hover on active doesn't override the colored box with gray */
+      &:hover {
+        background-color: mix($jandi-text-hover, #fff, 12%);
+      }
+    }
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .custom-sidebar {
+    .category-item {
+      color: #9ca3af; 
+      
+      &:hover { 
+        background-color: #1f2937; 
+        color: #e5e7eb; 
+        .cat-count { background-color: #374151; } 
+      }
+      
+      &.active {
+        /* Dark mode active box (dark teal/green tint) */
+        background-color: rgba($jandi-text-hover, 0.15);
+        color: $jandi-text-hover;
+
+        .cat-count { 
+          background-color: rgba($jandi-text-hover, 0.25); 
+          color: lighten($jandi-text-hover, 10%); 
+        }
+        
+        &:hover {
+           background-color: rgba($jandi-text-hover, 0.25);
+        }
+      }
+      
+      .cat-count { 
+        background-color: #1f2937; 
+        color: #9ca3af; 
+      }
+    }
+  }
+}
