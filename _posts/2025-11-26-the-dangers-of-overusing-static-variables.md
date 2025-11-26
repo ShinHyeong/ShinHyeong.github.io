@@ -1,3 +1,12 @@
+---
+title:  "Static 변수를 남용하면 안되는 이유 (유의점)"
+categories: java
+excerpt: "Static 변수의 특성을 생각하며, 이를 통해 남용하면 안되는 이유에 대해 생각해보자."
+#redirect_from: #이전주소 입력
+#search: false #만약 이 글이 검색되지 않기를 바란다면
+#use_math: true #수식이 필요한 경우만 사용
+---
+
 # static 변수를 남용하면 안되는 이유 (유의점)
 
 1. **static 변수와 인스턴스 변수의 차이점**
