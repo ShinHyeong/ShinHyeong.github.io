@@ -1,0 +1,25 @@
+<div class="custom-sidebar animate-fade-in">
+  
+  <div class="categories-section">
+    <h3 class="categories-title">Categories</h3>
+    <nav class="categories-nav">
+      
+      <a href="{{ '/categories/' | relative_url }}" class="category-item group {% if page.url == '/categories/' %}active{% endif %}">
+        <span class="cat-name">전체 보기</span>
+        <span class="cat-count">{{ site.posts | size }}</span>
+      </a>
+      
+      {% for category in site.categories %}
+        {% assign cat_name = category[0] %}
+        {% assign cat_count = category[1] | size %}
+        {% assign cat_slug = cat_name | slugify %}
+        
+        <a href="{{ '/categories/#' | relative_url }}{{ cat_slug }}" class="category-item group">
+          <span class="cat-name">{{ cat_name }}</span>
+          <span class="cat-count">{{ cat_count }}</span>
+        </a>
+      {% endfor %}
+    </nav>
+  </div>
+
+</div>
