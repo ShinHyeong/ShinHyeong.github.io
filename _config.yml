@@ -316,16 +316,6 @@ defaults:
       author_profile: false
       sidebar:
         nav: "counts"
-  - scope:
-      path: "_pages/tags-archive.md"
-      type: pages
-    values:
-      author_profile: false
-  - scope:
-      path: "_pages/year-archive.md"
-      type: pages
-    values:
-      author_profile: false
 
   - scope:
       path: "_pages/categories"
@@ -334,9 +324,3 @@ defaults:
       author_profile: false
       sidebar:
         nav: "counts"
-  - scope:
-      path: "_pages/tags"
-      type: pages
-    values:
-      author_profile: false
-  
