@@ -1,6 +1,6 @@
 ---
 title:  "Ch5. 관리구문"
-categories: sqld
+categories: SQLD
 excerpt: "헷갈리는 개념 정리"
 #redirect_from: #이전주소 입력
 #search: false #만약 이 글이 검색되지 않기를 바란다면
