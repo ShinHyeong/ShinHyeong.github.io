@@ -40,7 +40,11 @@ layout: default
       <div class="summary-header">
         <div class="summary-title">
           <i class="fas fa-check-circle"></i>
-          <span>학습목표</span>
+            {% if page.categories contains '회고' %}
+              한줄요약
+            {% else %}
+              학습목표
+            {% endif %}
         </div>
         </div>
       <p class="summary-content">
