@@ -251,13 +251,13 @@ $link-color-visited: $black;
 }
 
 /* ==========================================================================
-   Custom Post Design (Compact Size - 60% Scale)
+   Custom Post Design (Compact Size - Ultra Slim)
    ========================================================================== */
 
 .custom-post {
-  max-width: 760px; /* 전체 폭도 약간 줄임 */
+  max-width: 760px;
   margin: 0 auto;
-  padding: 1.5rem 1rem; /* 상하좌우 여백 대폭 축소 (3rem -> 1.5rem) */
+  padding: 1.5rem 1rem;
   animation: intro 0.5s ease-in-out;
   
   @include breakpoint($large) {
@@ -269,8 +269,8 @@ $link-color-visited: $black;
 .back-button {
   display: inline-flex;
   align-items: center;
-  margin-bottom: 1.5rem; /* 여백 축소 (2.5 -> 1.5) */
-  font-size: 0.8rem; /* 글자 크기 축소 */
+  margin-bottom: 1rem; /* 1.5 -> 1rem */
+  font-size: 0.75rem; /* 0.8 -> 0.75rem */
   font-weight: 500;
   color: #6b7280;
   text-decoration: none !important;
@@ -280,12 +280,12 @@ $link-color-visited: $black;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 0.4rem;
-    padding: 0.2rem; /* 아이콘 배경 크기 축소 */
+    margin-right: 0.3rem;
+    padding: 0.15rem;
     border-radius: 9999px;
     transition: background-color 0.2s;
     
-    i { font-size: 0.7rem; } /* 아이콘 자체 크기 축소 */
+    i { font-size: 0.65rem; }
   }
 
   &:hover {
@@ -296,10 +296,10 @@ $link-color-visited: $black;
   }
 }
 
-/* 2. Header (전체적으로 슬림하게) */
+/* 2. Header */
 .custom-header {
-  margin-bottom: 1.5rem; /* 본문과의 간격 축소 */
-  padding-bottom: 1.25rem; /* 구분선과의 간격 축소 */
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
   border-bottom: 1px solid #e5e7eb;
 }
 
@@ -307,35 +307,31 @@ $link-color-visited: $black;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.5rem; /* 아이템 간 간격 축소 */
-  margin-bottom: 0.75rem; /* 제목 위 여백 축소 */
-  font-size: 0.75rem; /* 메타 정보 글씨 작게 */
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.7rem; /* 0.75 -> 0.7rem (아주 작게) */
   color: #6b7280;
   font-weight: 500;
 
-.category-pill {
+  .category-pill {
     display: inline-flex;
     align-items: center;
-    padding: 0.15rem 0.6rem;
+    padding: 0.1rem 0.5rem; /* 패딩 축소 */
     border-radius: 9999px;
     background-color: mix($jandi-text-hover, #fff, 10%);
     color: $jandi-text-hover;
     
     font-size: 0.9em;
-    transition: all 0.2s ease; /* 부드러운 전환 효과 */
+    transition: all 0.2s ease;
 
-    /*링크 밑줄 제거*/
     text-decoration: none !important; 
     box-shadow: none !important;    
     border-bottom: none !important;
 
-    /* [추가] 호버 효과 (React의 hover:bg-brand-100 구현) */
     &:hover {
-      background-color: mix($jandi-text-hover, #fff, 20%); /* 배경을 조금 더 진하게 */
-      color: darken($jandi-text-hover, 10%); /* 글자도 살짝 더 진하게 */
+      background-color: mix($jandi-text-hover, #fff, 20%);
+      color: darken($jandi-text-hover, 10%);
       cursor: pointer;
-
-      /* 호버 시에도 밑줄 생기지 않도록 방지 */
       text-decoration: none !important;
       box-shadow: none !important;
     }
@@ -344,97 +340,98 @@ $link-color-visited: $black;
   .meta-item {
     display: inline-flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: 0.2rem;
     i { font-size: 0.8em; opacity: 0.7; }
   }
 }
 
 .custom-title {
-  font-size: 1.5rem; /* 제목 크기 대폭 축소 (PC 기준 2.5 -> 1.5) */
+  font-size: 1.35rem; /* 모바일: 1.5 -> 1.35rem */
   font-weight: 800;
-  line-height: 1.3;
-  margin-bottom: 1rem;
+  line-height: 1.25;
+  margin-bottom: 0.5rem;
   color: #111827;
   word-break: keep-all;
 
   @include breakpoint($large) {
-    font-size: 1.75rem;
+    font-size: 1.5rem; /* PC: 1.75 -> 1.5rem */
   }
 }
 
-/* 3. Summary Box (슬림형) */
+/* 3. Summary Box */
 .summary-box {
-  margin-top: 1.5rem; /* 위쪽 여백 축소 */
-  padding: 1rem; /* 박스 내부 패딩 축소 (1.5 -> 1) */
+  margin-top: 1.25rem;
+  padding: 0.85rem; /* 1 -> 0.85rem */
   background-color: #f9fafb;
   border: 1px solid #f3f4f6;
-  border-radius: 0.5rem; /* 모서리 둥글기 축소 */
+  border-radius: 0.4rem;
 
   .summary-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
   }
 
   .summary-title {
     display: flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.35rem;
     color: $jandi-text-hover;
     font-weight: 700;
-    font-size: 0.85rem; /* 제목 작게 */
+    font-size: 0.8rem; /* 0.85 -> 0.8rem */
     
-    i { font-size: 0.8rem; }
+    i { font-size: 0.75rem; }
   }
 
   .summary-content {
     margin: 0;
     color: #374151;
-    font-size: 0.85rem; /* 본문보다 더 작게 설명글 느낌 */
+    font-size: 0.8rem; /* 0.85 -> 0.8rem */
     line-height: 1.5;
     word-break: keep-all;
   }
 }
 
-/* 4. Content (본문 가독성 유지하되 컴팩트하게) */
+/* 4. Content (핵심: 본문 크기 축소) */
 .custom-content {
-  font-size: 0.95rem; /* 약 15px */
-  line-height: 1.7;
+  font-size: 0.875rem; /* 0.95rem -> 0.875rem (약 14px) */
+  line-height: 1.6; /* 1.7 -> 1.6 (밀도 높임) */
   color: #374151;
 
-  /* 문단 간격 축소 */
-  p { margin-bottom: 1.2em; }
+  /* 문단 간격 */
+  p { margin-bottom: 1em; } /* 1.2em -> 1em */
   
   h2 {
-    font-size: 1.35rem; /* 소제목 축소 */
+    font-size: 1.2rem; /* 1.35 -> 1.2rem */
     font-weight: 700;
     color: #111827;
-    margin-top: 2em;
-    margin-bottom: 0.6em;
+    margin-top: 1.8em;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid #f3f4f6; /* 구분선 추가로 가독성 확보 */
   }
 
   h3 {
-    font-size: 1.15rem;
+    font-size: 1.05rem; /* 1.15 -> 1.05rem */
     font-weight: 700;
     color: #111827;
     margin-top: 1.5em;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.4em;
   }
   
-  /* 리스트 간격도 조절 */
   ul, ol {
-    margin-bottom: 1.2em;
+    margin-bottom: 1em;
     padding-left: 1.2em;
     
-    li { margin-bottom: 0.3em; }
+    li { margin-bottom: 0.2em; }
   }
 
   a {
     color: $jandi-text-hover;
     text-decoration: underline;
-    text-decoration-thickness: 1px; /* 밑줄 두께 얇게 */
-    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
     
     &:hover {
       color: darken($jandi-text-hover, 10%);
@@ -442,24 +439,29 @@ $link-color-visited: $black;
   }
   
   img {
-    border-radius: 0.5rem;
-    margin: 1rem 0; /* 이미지 위아래 여백 축소 */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 0.4rem;
+    margin: 0.8rem 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* 코드 블록 내부 글자 크기도 조정 */
+  pre, code {
+    font-size: 0.8rem; 
   }
 }
 
-/* 5. Footer (하단 여백 정리) */
+/* 5. Footer */
 .custom-footer {
-  margin-top: 2.5rem; /* 본문 끝과 푸터 사이 간격 대폭 축소 (4 -> 2.5) */
-  padding-top: 1.5rem;
+  margin-top: 2rem;
+  padding-top: 1rem;
   border-top: 1px solid #e5e7eb;
-  font-size: 0.85rem; /* 푸터 글씨 작게 */
+  font-size: 0.75rem; /* 0.85 -> 0.75rem */
 
   .footer-inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   .thanks-text {
@@ -486,12 +488,16 @@ $link-color-visited: $black;
 @media (prefers-color-scheme: dark) {
   .custom-header { border-color: #374151; }
   .custom-title { color: #f9fafb; }
-  .ai-summary-box {
+  .summary-box {
     background-color: rgba(31, 41, 55, 0.4);
     border-color: #374151;
     .summary-content { color: #d1d5db; }
   }
-  .custom-content { color: #d1d5db; h2,h3 { color: #f9fafb; } }
+  .custom-content { 
+    color: #d1d5db; 
+    h2 { color: #f9fafb; border-color: #374151; }
+    h3 { color: #f9fafb; } 
+  }
   .custom-footer { border-color: #374151; }
 }
 
@@ -558,7 +564,6 @@ $link-color-visited: $black;
   font-weight: 700;
   color: #6b7280; /* 회색 텍스트 */
   margin-bottom: 0.25rem;
-  font-family: $sans-serif;
   transition: color 0.2s;
 
   i { font-size: 0.7rem; }
@@ -569,7 +574,6 @@ $link-color-visited: $black;
   font-size: 0.9rem; /* 제목 크기 적당하게 */
   font-weight: 700;
   color: #111827; /* 진한 검정 */
-  font-family: $sans-serif;
   width: 100%;
 
   /* 말줄임표 처리 (line-clamp-1) */
