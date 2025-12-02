@@ -6,7 +6,7 @@ permalink: /categories/java
 
 {% comment %}
 {% endcomment %}
-{% for post in site.categories['java'] %}
+{% for post in site.categories['Java'] %}
   {% include archive-single.html type="list" %}
 {% endfor %}
 

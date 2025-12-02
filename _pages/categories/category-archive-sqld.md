@@ -6,7 +6,7 @@ permalink: /categories/sqld
 
 {% comment %}
 {% endcomment %}
-{% for post in site.categories['sqld'] %}
+{% for post in site.categories['SQLD'] %}
   {% include archive-single.html type="list" %}
 {% endfor %}
 

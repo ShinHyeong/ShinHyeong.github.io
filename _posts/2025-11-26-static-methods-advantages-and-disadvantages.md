@@ -1,6 +1,6 @@
 ---
 title:  "Static 메소드의 장단점"
-categories: java
+categories: Java
 excerpt: "Static 메소드의 호출방식, 메모리 측면에서의 장단점을 알아보자. 그리고 이를 통해 static 메소드는 어떨 때 사용해야 좋을지에 대해 생각해보자."
 #redirect_from: #이전주소 입력
 #search: false #만약 이 글이 검색되지 않기를 바란다면

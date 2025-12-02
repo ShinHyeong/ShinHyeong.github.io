@@ -1,9 +1,6 @@
 ---
 title:  "자바의 4가지 변수와 JVM에서의 저장위치"
-categories: java
-tag: [jvm]
-redirect_from: #이전주소 입력
-    - /java/jvm
+categories: Java
 excerpt: "지역변수, 매개변수, 인스턴스변수, Static변수가 각각 어떤 건지, 또 JVM 메모리에 각각 어디에 저장될까?"
 #search: false #만약 이 글이 검색되지 않기를 바란다면
 #use_math: true #수식이 필요한 경우만 사용
