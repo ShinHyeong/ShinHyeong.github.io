@@ -13,9 +13,16 @@ layout: default
       
       <div class="series-header">
         <span class="series-label">SERIES</span>
-        <span class="series-name">
-          <i class="fas fa-bars"></i> {{ page.categories[0] | upcase }}
-        </span>
+        
+        {% if page.categories[0] %}
+          <a href="{{ '/categories/#' | relative_url }}{{ page.categories[0] | slugify }}" class="series-name">
+            <i class="fas fa-bars"></i> {{ page.categories[0] | upcase }}
+          </a>
+        {% else %}
+          <span class="series-name">
+            <i class="fas fa-bars"></i> 미분류
+          </span>
+        {% endif %}
       </div>
       
       <ul class="series-list">

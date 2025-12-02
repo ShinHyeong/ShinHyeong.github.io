@@ -1027,22 +1027,37 @@ $link-color-visited: $black;
     letter-spacing: 0.05em;
   }
   
+  /* 카테고리명 (링크 스타일 적용) */
   .series-name {
-    display: flex; /* 아이콘과 텍스트 높이 정렬 */
+    display: flex;
     align-items: center;
     font-weight: 700;
     color: #9ca3af; 
     font-size: 0.8rem;
+    
+    /* [신규] 링크 스타일 초기화 및 인터랙션 추가 */
+    text-decoration: none; /* 밑줄 제거 */
+    cursor: pointer;       /* 손가락 커서 */
+    transition: color 0.2s; /* 색상 변경 부드럽게 */
 
-    /* 아이콘 스타일 추가 */
+    /* 아이콘 스타일 */
     i {
-      margin-right: 0.4rem; /* 텍스트와 간격 */
-      font-size: 0.75rem;   /* 아이콘 크기 */
-      color: #d1d5db;       /* 아이콘 색상 (은은하게) */
+      margin-right: 0.4rem;
+      font-size: 0.75rem;
+      color: #d1d5db;
+      transition: color 0.2s;
+    }
+
+    /* [신규] 마우스 올렸을 때 색상 변화 (클릭 유도) */
+    &:hover {
+      color: $jandi-text-hover; /* 브랜드 컬러로 변경 */
+      
+      i {
+        color: $jandi-text-hover; /* 아이콘도 같이 변경 */
+      }
     }
   }
 }
-
 /* 글 목록 */
 .series-list {
   list-style: none;
