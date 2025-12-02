@@ -6,89 +6,178 @@ layout: default
   {% include page__hero.html %}
 {% endif %}
 
-<article class="custom-post" itemscope itemtype="https://schema.org/CreativeWork">
-  <meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">
-  <meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">
-  {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">{% endif %}
-  {% if page.last_modified_at %}<meta itemprop="dateModified" content="{{ page.last_modified_at | date_to_xmlschema }}">{% endif %}
+<div class="post-layout-wrapper">
 
-  <a href="{{ '/' | relative_url }}" class="back-button group">
-    <div class="icon-wrapper">
-      <i class="fas fa-chevron-left"></i>
-    </div>
-    <span>목록으로 돌아가기</span>
-  </a>
-
-  <header class="custom-header">
-    <div class="post-meta-row">
-      {% if page.categories[0] %}
-        {% assign category_slug = page.categories[0] | slugify %}
-        <a href="{{ '/categories/#' | relative_url }}{{ category_slug }}" class="category-pill">
-          {{ page.categories[0] }}
-        </a>
-      {% endif %}
-      <span class="meta-item">
-        <i class="far fa-calendar"></i> {{ page.date | date: "%Y.%m.%d" }}
-      </span>
-    </div>
-
-    <h1 class="custom-title" itemprop="headline">
-      {{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}
-    </h1>
-
-    <div class="summary-box">
-      <div class="summary-header">
-        <div class="summary-title">
-          <i class="fas fa-check-circle"></i>
-            {% if page.categories contains '회고' %}
-              한줄요약
-            {% else %}
-              학습목표
-            {% endif %}
-        </div>
-        </div>
-      <p class="summary-content">
-        {% if page.excerpt %}
-          {{ page.excerpt | strip_html }}
+  <aside class="custom-left-sidebar">
+    <div class="series-card">
+      
+      <div class="series-header">
+        <span class="series-label">SERIES</span>
+        <span class="series-name">
+          <i class="fas fa-bars"></i> {{ page.categories[0] | upcase }}
+        </span>
+      </div>
+      
+      <ul class="series-list">
+        {% assign category_name = page.categories[0] %}
+        {% for post in site.categories[category_name] limit:10 %}
+          <li class="{% if post.url == page.url %}current{% endif %}">
+            <a href="{{ post.url | relative_url }}">
+              <span class="indicator">
+                {% if post.url == page.url %}
+                  <i class="fas fa-play-circle"></i>
+                {% else %}
+                  <i class="fas fa-circle" style="font-size: 0.4rem; transform: translateY(-2px);"></i>
+                {% endif %}
+              </span>
+              <span>{{ post.title }}</span>
+            </a>
+          </li>
+        {% endfor %}
+        
+        {% if site.categories[category_name].size > 5 %}
+          <li>
+            <a href="{{ '/categories/#' | relative_url }}{{ category_name | slugify }}" style="color: #9ca3af; font-size: 0.75rem;">
+              <span class="indicator"><i class="fas fa-ellipsis-h"></i></span>
+              <span>더보기...</span>
+            </a>
+          </li>
         {% endif %}
-      </p>
+      </ul>
+
     </div>
-  </header>
+  </aside>
 
-  <div class="custom-content prose" itemprop="text">
-    {{ content }}
-  </div>
+  <article class="custom-post" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">
+    <meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">
+    {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">{% endif %}
+    {% if page.last_modified_at %}<meta itemprop="dateModified" content="{{ page.last_modified_at | date_to_xmlschema }}">{% endif %}
 
-  <div class="post-navigation-container">
-    {% if page.previous %}
-      <a href="{{ page.previous.url | relative_url }}" class="nav-card prev group">
-        <div class="nav-label">
-          <i class="fas fa-arrow-left"></i> <span>이전 글</span>
+    <a href="{{ '/' | relative_url }}" class="back-button group">
+      <div class="icon-wrapper">
+        <i class="fas fa-chevron-left"></i>
+      </div>
+      <span>목록으로 돌아가기</span>
+    </a>
+
+    <header class="custom-header">
+      <div class="post-meta-row">
+        {% if page.categories[0] %}
+          {% assign category_slug = page.categories[0] | slugify %}
+          <a href="{{ '/categories/#' | relative_url }}{{ category_slug }}" class="category-pill">
+            {{ page.categories[0] }}
+          </a>
+        {% endif %}
+        <span class="meta-item">
+          <i class="far fa-calendar"></i> {{ page.date | date: "%Y.%m.%d" }}
+        </span>
+      </div>
+
+      <h1 class="custom-title" itemprop="headline">
+        {{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}
+      </h1>
+
+      <div class="summary-box">
+        <div class="summary-header">
+          <div class="summary-title">
+            <i class="fas fa-check-circle"></i>
+              {% if page.categories contains '회고' %}
+                한줄요약
+              {% else %}
+                학습목표
+              {% endif %}
+          </div>
         </div>
-        <div class="nav-title">{{ page.previous.title }}</div>
-      </a>
-    {% else %}
-      <div class="nav-spacer"></div> {% endif %}
+        <p class="summary-content">
+          {% if page.excerpt %}
+            {{ page.excerpt | strip_html }}
+          {% endif %}
+        </p>
+      </div>
+    </header>
 
-    {% if page.next %}
-      <a href="{{ page.next.url | relative_url }}" class="nav-card next group">
-        <div class="nav-label">
-          <span>다음 글</span> <i class="fas fa-arrow-right"></i>
-        </div>
-        <div class="nav-title">{{ page.next.title }}</div>
-      </a>
-    {% else %}
-      <div class="nav-spacer"></div>
-    {% endif %}
-  </div>
+    <div class="custom-content prose" itemprop="text">
+      {{ content }}
+    </div>
 
-  <div class="custom-footer">
-     </div>    
+    <div class="post-navigation-container">
+      {% if page.previous %}
+        <a href="{{ page.previous.url | relative_url }}" class="nav-card prev group">
+          <div class="nav-label">
+            <i class="fas fa-arrow-left"></i> <span>이전 글</span>
+          </div>
+          <div class="nav-title">{{ page.previous.title }}</div>
+        </a>
+      {% else %}
+        <div class="nav-spacer"></div> 
+      {% endif %}
+
+      {% if page.next %}
+        <a href="{{ page.next.url | relative_url }}" class="nav-card next group">
+          <div class="nav-label">
+            <span>다음 글</span> <i class="fas fa-arrow-right"></i>
+          </div>
+          <div class="nav-title">{{ page.next.title }}</div>
+        </a>
+      {% else %}
+        <div class="nav-spacer"></div>
+      {% endif %}
+    </div>
+
+    <div class="custom-footer">
+      </div>    
+    
     {% if page.comments %}
       <div id="comments" class="page__comments">
         {% include comments.html %}
       </div>
     {% endif %}
-  </div>
+    
+    </article>
 
-</article>
+    <aside class="custom-toc-sidebar">
+      <nav class="toc-minimal">
+        <h4 class="toc-header">
+          On this page
+        </h4>
+        {% include toc.html sanitize=true html=content h_min=1 h_max=3 class="toc-list" item_class="toc-item" %}
+      </nav>
+    </aside>
+  </div><script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const tocLinks = document.querySelectorAll('.toc-list a');
+    const sections = document.querySelectorAll('.custom-content h1, .custom-content h2, .custom-content h3');
+
+    // IntersectionObserver 옵션 설정
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -80% 0px', // 화면 상단 20% 지점을 통과할 때 감지
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // 1. 현재 화면에 들어온 제목의 ID 가져오기
+          const id = entry.target.getAttribute('id');
+
+          // 2. 모든 TOC 링크에서 active 클래스 제거
+          tocLinks.forEach(link => link.classList.remove('active'));
+
+          // 3. 현재 ID와 일치하는 TOC 링크에만 active 클래스 추가
+          // (특수문자 등이 포함된 ID 매칭을 위해 속성 선택자 사용)
+          const activeLink = document.querySelector(`.toc-list a[href="#${id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+          }
+        }
+      });
+    }, observerOptions);
+
+    // 본문의 모든 헤딩 태그 관찰 시작
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  });
+</script>
