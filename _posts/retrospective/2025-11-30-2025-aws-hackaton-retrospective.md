@@ -2,8 +2,7 @@
 title:  "2025 AWS 해커톤 (GWNU X KNU) 회고"
 categories: 회고
 excerpt: "🏆 2025 AWS 해커톤 (GWNU X KNU) 우수상 수상 !"
-redirect_from: #이전주소 입력
-    - /categories/회고/2025-aws-hackaton-retrospective
+#redirect_from: #이전주소 입력
 #search: false #만약 이 글이 검색되지 않기를 바란다면
 #use_math: true #수식이 필요한 경우만 사용
 ---
