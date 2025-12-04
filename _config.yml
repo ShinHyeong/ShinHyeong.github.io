@@ -324,3 +324,8 @@ defaults:
       author_profile: false
       sidebar:
         nav: "counts"
+
+  - scope:
+      path: "_posts/retrospective" # 이 폴더에 있는 파일들은
+    values:
+      permalink: /retrospective/:title/ # 무조건 이 URL 규칙을 따름
