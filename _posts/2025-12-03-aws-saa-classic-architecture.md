@@ -146,6 +146,8 @@ EC2는 본질적으로 컴퓨터이기 때문에 다음과 같은 특징을 가�
 - 🛡️ **'서버'로서의 특화 기능**{: .highlight-text } : 서비스 제공을 위해 보안(Security), 비용 관리, 개발 편의 사항 등이 각별하게 신경 써져 있음
 </div>
 
+<br>
+
 ### 주요 연관 기능
 
 EC2는 혼자서 독립적으로 존재하기보다, AWS의 생태계 안에서 다른 핵심 서비스들과 유기적으로 연결될 때 비로소 **안정적인 서비스 운영**{: .highlight-text }이 가능해집니다.
@@ -197,6 +199,8 @@ EC2는 혼자서 독립적으로 존재하기보다, AWS의 생태계 안에서 
     - 서비스 사용량은 항상 일정하지 않습니다. 낮에는 많고 새벽에는 적을 수 있습니다.
     - ASG는 트래픽 양에 맞춰 EC2 인스턴스의 개수를 자동으로 늘리거나(Scale-out) 줄여주는(Scale-in) **자동 확장 기능**{: .highlight-text }입니다. 이를 통해 비용 효율성을 극대화할 수 있습니다.
 </div>
+
+<br>
 
 ### 인스턴스 유형
 
@@ -322,6 +326,8 @@ EC2 인스턴스를 생성하려고 보면 `t3.small`, `m5.large` 같은 암호 
 
 일반적으로 입문자가 프리티어로 접하는 **t 시리즈**는 평소에는 적절한 성능을 유지하다가, 트래픽이 몰릴 때 일시적으로 성능을 높일 수 있어 비용 효율적입니다. 실제 서비스 성격에 맞춰 적절한 패밀리를 선택하는 것이 클라우드 비용 절감의 시작입니다.
 {: .story-box }
+
+<br>
 
 ### EC2 인스턴스 구매 옵션
 
@@ -614,6 +620,8 @@ EC2는 사용 목적과 기간에 따라 다양한 요금제를 제공합니다.
 
   </div>
 
+<br>
+
 ### 배치 그룹 전략(Placement Groups)
 
 인스턴스 물리적 배치 전략
@@ -758,46 +766,48 @@ EC2는 사용 목적과 기간에 따라 다양한 요금제를 제공합니다.
 </div>
 
 <div style="margin-bottom: 1.5rem;">
-    <h4 style="margin: 0; color: #1e293b; font-weight: 800;">✔️ 배치 그룹 선택 가이드 (Deep Dive)</h4>
+  <h4 style="margin: 0; color: #1e293b; font-weight: 800;">✔️ 배치 그룹 선택 가이드 (Deep Dive)</h4>
+</div>
+
+<div class="deep-dive-list">
+
+  <div class="dd-item">
+    <div class="dd-header">
+      <span class="dd-title">1. 클러스터(Cluster)는 오직 '단일 AZ'</span>
+    </div>
+    <p class="dd-content">
+      클러스터는 최고의 네트워크 속도를 위해 물리적으로 가까이 뭉쳐야 하므로 <span class="code-span">여러 AZ에 걸쳐 생성할 수 없습니다.</span>
+      <span class="sub-text">👉 반면, <strong>분산(Spread)</strong>과 <strong>파티션(Partition)</strong> 그룹은 여러 AZ에 걸쳐서 배치 가능합니다.</span>
+    </p>
   </div>
 
-  <div class="deep-dive-list">
-
-    <div class="dd-item">
-      <div class="dd-header">
-        <span class="dd-title">1. 클러스터(Cluster)는 오직 '단일 AZ'</span>
-      </div>
-      <p class="dd-content">
-        클러스터는 최고의 네트워크 속도를 위해 물리적으로 가까이 뭉쳐야 하므로 <span class="code-span">여러 AZ에 걸쳐 생성할 수 없습니다.</span>
-        <span class="sub-text">👉 반면, <strong>분산(Spread)</strong>과 <strong>파티션(Partition)</strong> 그룹은 여러 AZ에 걸쳐서 배치 가능합니다.</span>
-      </p>
+  <div class="dd-item">
+    <div class="dd-header">
+      <span class="dd-title">2. 분산(Spread) vs 파티션(Partition) 구분법</span>
+      <span class="dd-badge blue">Tip</span>
     </div>
-
-    <div class="dd-item">
-      <div class="dd-header">
-        <span class="dd-title">2. 분산(Spread) vs 파티션(Partition) 구분법</span>
-        <span class="dd-badge blue">Tip</span>
-      </div>
-      <p class="dd-content">
-        둘 다 하드웨어를 분리하지만, <span class="code-span">'규모'</span>가 다릅니다.
-        <span class="sub-text">
-          • 분산: 인스턴스 단위 격리 (AZ당 7개 제한) → <strong>중요 DB</strong><br>
-          • 파티션: 그룹 단위 격리 (수백 개 가능) → <strong>Hadoop, Kafka</strong>
-        </span>
-      </p>
-    </div>
-
-    <div class="dd-item">
-      <div class="dd-header">
-        <span class="dd-title">3. 실행 중인 인스턴스는 이동 불가</span>
-      </div>
-      <p class="dd-content">
-        이미 잘 돌아가고 있는 인스턴스를 나중에 배치 그룹으로 옮길 수는 없습니다.
-        <span class="sub-text">👉 <strong>AMI(이미지)를 생성</strong>한 뒤, 배치 그룹을 지정하여 <strong>새 인스턴스로 다시 시작(Launch)</strong>해야 합니다.</span>
-      </p>
-    </div>
-
+    <p class="dd-content">
+      둘 다 하드웨어를 분리하지만, <span class="code-span">'규모'</span>가 다릅니다.
+      <span class="sub-text">
+        • 분산: 인스턴스 단위 격리 (AZ당 7개 제한) → <strong>중요 DB</strong><br>
+        • 파티션: 그룹 단위 격리 (수백 개 가능) → <strong>Hadoop, Kafka</strong>
+      </span>
+    </p>
   </div>
+
+  <div class="dd-item">
+    <div class="dd-header">
+      <span class="dd-title">3. 실행 중인 인스턴스는 이동 불가</span>
+    </div>
+    <p class="dd-content">
+      이미 잘 돌아가고 있는 인스턴스를 나중에 배치 그룹으로 옮길 수는 없습니다.
+      <span class="sub-text">👉 <strong>AMI(이미지)를 생성</strong>한 뒤, 배치 그룹을 지정하여 <strong>새 인스턴스로 다시 시작(Launch)</strong>해야 합니다.</span>
+    </p>
+  </div>
+
+</div>
+
+<br>
 
 ### 보안그룹(Security Group)
 
@@ -1050,6 +1060,8 @@ EC2는 사용 목적과 기간에 따라 다양한 요금제를 제공합니다.
   </div>
 </div>
 
+<br>
+
 ### User Data
 
 <div class="info-box">
@@ -1161,6 +1173,8 @@ EC2는 사용 목적과 기간에 따라 다양한 요금제를 제공합니다.
 🚀 **OS의 부트스트랩**{: .highlight-text } : 서버 시작 시 특정 명령을 자동으로 실행하는 행위
 </div>
 
+<br>
+
 ### 탄력적 IP(Elastic IP / EIP)
 
 <div class="story-box" markdown="1">
@@ -1269,6 +1283,8 @@ EIP는 단순히 '고정 IP'를 제공하는 것 이상의 의미가 있습니�
 
 </div>
 
+<br>
+
 ### AMI(Amazon Machine Image)
 
 <div class="story-box" markdown="1">
@@ -1278,36 +1294,28 @@ EIP는 단순히 '고정 IP'를 제공하는 것 이상의 의미가 있습니�
 </div>
 
 <div class="info-box">
-
 <div style="background-color: white; margin-bottom: 2rem; font-family: 'Apple SD Gothic Neo', sans-serif; font-size: 0.85rem; letter-spacing: -0.03em; line-height: 1.4; max-width: 820px; margin-left: auto; margin-right: auto; color: #334155;">
-
-  <div style="display: flex; gap: 1rem; border: 2px solid #cbd5e1; border-radius: 0.8rem; padding: 1.5rem 1rem; margin-bottom: 1rem; align-items: center; background: #f8fafc;">
-    
+  <div style="display: flex; gap: 1rem; border: 2px solid #cbd5e1; border-radius: 0.8rem; padding: 1.5rem 1rem; margin-bottom: 1rem; align-items: center; background: #f8fafc;">  
     <div style="text-align: center; min-width: 100px;">
       <i class="fas fa-save" style="font-size: 2.5rem; color: #475569; margin-bottom: 0.5rem;"></i>
       <div style="font-weight: 800; font-size: 0.9rem; color: #1e293b;">AMI</div>
       <div style="font-size: 0.7rem; color: #64748b;">(붕어빵 틀)</div>
     </div>
-
     <div style="flex: 1; border-left: 2px dashed #cbd5e1; padding-left: 1rem;">
       <div style="font-weight: 800; color: #334155; font-size: 0.95rem; margin-bottom: 0.5rem;">
         EC2 인스턴스를 찍어내는 <span style="color: #2563eb;">완벽한 설계도</span>
       </div>
-
       <div style="display: flex; gap: 0.3rem; margin-bottom: 0.8rem; flex-wrap: wrap;">
         <span style="background: white; border: 1px solid #94a3b8; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.75rem; color: #475569;">운영 체제</span>
         <span style="background: white; border: 1px solid #94a3b8; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.75rem; color: #475569;">설치된 프로그램</span>
         <span style="background: white; border: 1px solid #94a3b8; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.75rem; color: #475569;">권한/설정</span>
       </div>
-
       <div style="font-size: 0.8rem; color: #475569;">
         <i class="fas fa-check-circle" style="color: #10b981; margin-right: 5px;"></i>
         이 이미지 하나만 있으면 똑같은 컴퓨터를 100대든 1000대든 즉시 생성 가능
       </div>
     </div>
-
   </div>
-
   <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.8rem;">
     <div style="background: white; border: 1px solid #e2e8f0; border-radius: 0.6rem; padding: 1rem 0.5rem; text-align: center;">
       <div style="color: #f59e0b; margin-bottom: 0.3rem;"><i class="fas fa-users" style="font-size: 1.2rem;"></i></div>
@@ -1325,9 +1333,7 @@ EIP는 단순히 '고정 IP'를 제공하는 것 이상의 의미가 있습니�
       <div style="font-size: 0.75rem; color: #64748b;">검증된 기업의 솔루션<br>(구매하여 사용)</div>
     </div>
   </div>
-
 </div>
-
 </div>
 
 <div class="story-box" markdown="1">
@@ -1340,9 +1346,7 @@ EIP는 단순히 '고정 IP'를 제공하는 것 이상의 의미가 있습니�
     <div style="background: #475569; color: white; padding: 0.6rem; text-align: center; font-weight: 800; font-size: 0.9rem;">
       🛠️ AMI 생성 및 활용 과정
     </div>
-    
     <div style="display: flex; align-items: stretch; background: white; padding: 1.5rem 1rem; gap: 0.5rem; justify-content: space-between;">
-      
       <div style="flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center;">
         <div style="background: #eff6ff; color: #3b82f6; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 0.5rem; border: 1px solid #bfdbfe;">
           <strong style="font-size: 0.9rem;">1</strong>
@@ -1350,9 +1354,7 @@ EIP는 단순히 '고정 IP'를 제공하는 것 이상의 의미가 있습니�
         <div style="font-weight: 700; font-size: 0.8rem; color: #334155; margin-bottom: 0.2rem;">원본 세팅</div>
         <div style="font-size: 0.7rem; color: #64748b;">EC2 시작 후<br>SW 설치/설정</div>
       </div>
-
       <div style="display: flex; align-items: center; color: #cbd5e1;"><i class="fas fa-chevron-right"></i></div>
-
       <div style="flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center;">
         <div style="background: #fef2f2; color: #ef4444; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 0.5rem; border: 1px solid #fecaca;">
           <strong style="font-size: 0.9rem;">2</strong>
@@ -1360,9 +1362,7 @@ EIP는 단순히 '고정 IP'를 제공하는 것 이상의 의미가 있습니�
         <div style="font-weight: 700; font-size: 0.8rem; color: #334155; margin-bottom: 0.2rem;">인스턴스 중지</div>
         <div style="font-size: 0.7rem; color: #64748b;">파일 손상 방지<br>(권장 사항)</div>
       </div>
-
       <div style="display: flex; align-items: center; color: #cbd5e1;"><i class="fas fa-chevron-right"></i></div>
-
       <div style="flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center;">
         <div style="background: #f0fdf4; color: #10b981; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 0.5rem; border: 1px solid #bbf7d0;">
           <strong style="font-size: 0.9rem;">3</strong>
@@ -1370,9 +1370,7 @@ EIP는 단순히 '고정 IP'를 제공하는 것 이상의 의미가 있습니�
         <div style="font-weight: 700; font-size: 0.8rem; color: #334155; margin-bottom: 0.2rem;">AMI 생성</div>
         <div style="font-size: 0.7rem; color: #64748b;">스냅샷 자동 생성<br>및 이미지 등록</div>
       </div>
-
       <div style="display: flex; align-items: center; color: #cbd5e1;"><i class="fas fa-chevron-right"></i></div>
-
       <div style="flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center;">
         <div style="background: #fffbeb; color: #f59e0b; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 0.5rem; border: 1px solid #fde68a;">
           <strong style="font-size: 0.9rem;">4</strong>
@@ -1380,7 +1378,6 @@ EIP는 단순히 '고정 IP'를 제공하는 것 이상의 의미가 있습니�
         <div style="font-weight: 700; font-size: 0.8rem; color: #334155; margin-bottom: 0.2rem;">대량 배포</div>
         <div style="font-size: 0.7rem; color: #64748b;">AMI를 사용하여<br>새 인스턴스 시작</div>
       </div>
-
     </div>
   </div>
 </div>
@@ -1394,29 +1391,24 @@ EIP는 단순히 '고정 IP'를 제공하는 것 이상의 의미가 있습니�
 </div>
 
 <div class="info-box">
-<div style="font-family: 'Apple SD Gothic Neo', sans-serif; font-size: 0.8rem; letter-spacing: -0.03em; line-height: 1.4; margin-left: auto; margin-right: auto; color: #334155;">
-
+  <div style="font-family: 'Apple SD Gothic Neo', sans-serif; font-size: 0.8rem; letter-spacing: -0.03em; line-height: 1.4; margin-left: auto; margin-right: auto; color: #334155;">
   <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.6rem; padding: 0.8rem;">
     <div style="font-weight: 800; color: #1e293b; margin-bottom: 0.6rem; text-align: center; font-size: 0.85rem;">
       ⚖️ 기술적 차이점 요약
-    </div>
-    
+    </div>    
     <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.4rem; text-align: center;">
       <div style="font-weight: 700; color: #64748b; font-size: 0.75rem; padding-bottom: 0.3rem; border-bottom: 1px solid #cbd5e1;">구분</div>
       <div style="font-weight: 700; color: #7c3aed; font-size: 0.75rem; padding-bottom: 0.3rem; border-bottom: 1px solid #a78bfa;">AMI</div>
       <div style="font-weight: 700; color: #2563eb; font-size: 0.75rem; padding-bottom: 0.3rem; border-bottom: 1px solid #93c5fd;">User Data</div>
       <div style="font-weight: 700; color: #059669; font-size: 0.75rem; padding-bottom: 0.3rem; border-bottom: 1px solid #6ee7b7;">추천</div>
-
       <div style="font-size: 0.75rem; color: #334155; padding: 0.3rem 0; border-bottom: 1px solid #e2e8f0;">설정 시점</div>
       <div style="font-size: 0.75rem; color: #475569; padding: 0.3rem 0; border-bottom: 1px solid #e2e8f0; background: #faf5ff;">Baking (생성)</div>
       <div style="font-size: 0.75rem; color: #475569; padding: 0.3rem 0; border-bottom: 1px solid #e2e8f0; background: #eff6ff;">Boot (부팅)</div>
       <div style="font-size: 0.7rem; color: #94a3b8; padding: 0.3rem 0; border-bottom: 1px solid #e2e8f0;">-</div>
-
       <div style="font-size: 0.75rem; color: #334155; padding: 0.3rem 0; border-bottom: 1px solid #e2e8f0;">부팅 속도</div>
       <div style="font-size: 0.75rem; color: #7c3aed; font-weight: 700; padding: 0.3rem 0; border-bottom: 1px solid #e2e8f0; background: #faf5ff;">빠름 🚀</div>
       <div style="font-size: 0.75rem; color: #94a3b8; padding: 0.3rem 0; border-bottom: 1px solid #e2e8f0; background: #eff6ff;">느림 🐢</div>
       <div style="font-size: 0.7rem; color: #64748b; padding: 0.3rem 0; border-bottom: 1px solid #e2e8f0;">설치 많으면 AMI</div>
-
       <div style="font-size: 0.75rem; color: #334155; padding: 0.3rem 0;">업데이트</div>
       <div style="font-size: 0.75rem; color: #94a3b8; padding: 0.3rem 0; background: #faf5ff;">어려움</div>
       <div style="font-size: 0.75rem; color: #2563eb; font-weight: 700; padding: 0.3rem 0; background: #eff6ff;">쉬움</div>
@@ -1448,11 +1440,10 @@ EIP는 단순히 '고정 IP'를 제공하는 것 이상의 의미가 있습니�
     </div>
     <p class="dd-content">
       어느 하나만 쓰기보다는 둘을 섞어 쓰는 것이 좋습니다.
-      
+
        <div style="text-align: center; margin-top:1rem; margin-bottom:1rem;">
           <div style="display: inline-block; background: #fff; border: 1px dashed #cbd5e1; border-radius: 0.6rem; padding: 0.8rem; width: 100%; box-sizing: border-box;">
             <strong style="color: #059669; font-size: 0.85rem;">💡 실무 Best Practice (하이브리드 전략)</strong>
-            
             <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 0.5rem;">
               <div style="background: #f5f3ff; color: #7c3aed; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.75rem; border: 1px solid #ddd6fe;">
                 <strong>AMI</strong> (무거운 설치)
@@ -1462,13 +1453,12 @@ EIP는 단순히 '고정 IP'를 제공하는 것 이상의 의미가 있습니�
                 <strong>User Data</strong> (가벼운 설정)
               </div>
             </div>
-            
             <div style="font-size: 0.75rem; color: #64748b; margin-top: 0.3rem;">
               = <strong style="color: #475569;">Golden Image</strong> 전략 (속도와 유연성 모두 확보)
             </div>
           </div>
         </div>
-
+        
       <span class="sub-text">
         • <strong>AMI:</strong> 설치가 오래 걸리는 OS 패치, DB 엔진 등을 미리 설치<br>
         • <strong>User Data:</strong> 자주 바뀌는 설정 파일이나 최신 코드만 부팅 시 다운로드
@@ -1487,3 +1477,5 @@ EIP는 단순히 '고정 IP'를 제공하는 것 이상의 의미가 있습니�
   </div>
 
 </div>
+
+<br>
