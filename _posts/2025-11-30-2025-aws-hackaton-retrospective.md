@@ -107,24 +107,41 @@ redirect_from: #이전주소 입력
 
 팀 내 아이디어 회의 끝에, 2가지 후보로 추려졌다.
 
-<div class="comparison-grid-box">
-  <div class="grid-inner">
-    <div class="grid-header-title">
+<div style="font-family: 'Apple SD Gothic Neo', sans-serif; font-size: 0.8rem; letter-spacing: -0.03em; line-height: 1.4; max-width: 800px; margin: 1.5rem auto; color: #334155;">
+
+  <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.6rem; padding: 0.8rem;">
+    <div style="font-weight: 800; color: #1e293b; margin-bottom: 0.8rem; text-align: center; font-size: 0.9rem;">
       ⚖️ 아이디어 선정 기준 비교
     </div>
     
-    <div class="grid-table">
-      <div class="g-head t-gray">아이디어</div>
-      <div class="g-head t-blue">이전 수상 사례</div>
-      <div class="g-head t-red">13시간 내 구현</div>
+    <div style="display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 0.4rem; text-align: center; align-items: stretch;">
+      
+      <div style="font-weight: 700; color: #64748b; font-size: 0.75rem; padding-bottom: 0.4rem; border-bottom: 2px solid #cbd5e1;">아이디어</div>
+      <div style="font-weight: 700; color: #64748b; font-size: 0.75rem; padding-bottom: 0.4rem; border-bottom: 2px solid #cbd5e1;">이전 수상 사례</div>
+      <div style="font-weight: 700; color: #64748b; font-size: 0.75rem; padding-bottom: 0.4rem; border-bottom: 2px solid #cbd5e1;">13시간 내 구현</div>
 
-      <div class="g-cell" style="color:#1e293b;">사기탐지 AI<br><span style="font-size:0.9em; color:#94a3b8; font-weight:400;">(이미지, 보이스피싱)</span></div>
-      <div class="g-cell bg-gray">🟢 많음<br>(6건 정도)</div>
-      <div class="g-cell bg-gray">🟢 괜찮아보임<br>(이전 해커톤 수상 사례가 많으니 가능할지도..?)</div>
+      <div style="font-size: 0.75rem; color: #334155; padding: 0.8rem 0.4rem; display: flex; align-items: center; justify-content: center; flex-direction: column; border-radius: 4px 0 0 4px;">
+        <strong>사기탐지 AI</strong>
+        <span style="color:#64748b; font-size:0.9em; margin-top:2px;">(이미지, 피싱)</span>
+      </div>
+      <div style="font-size: 0.75rem; color: #475569; padding: 0.8rem 0.4rem; display: flex; align-items: center; justify-content: center;">
+        🟢 많음 (6건)
+      </div>
+      <div style="font-size: 0.75rem; color: #475569; padding: 0.8rem 0.4rem; display: flex; align-items: center; justify-content: center; border-radius: 0 4px 4px 0;">
+        🟢 이전 해커톤 수상 사례가<br>많으니 가능할지도..?
+      </div>
 
-      <div class="g-cell" style="font-weight:700; color:#1e293b;">자소서 검증<br><span style="font-size:0.9em; color:#3b82f6; font-weight:400;">(내 아이디어)</span></div>
-      <div class="g-cell bg-blue">🔺 적음<br>(2건 정도)</div>
-      <div class="g-cell bg-blue">🔺 미지수<br>(애매함)</div>
+      <div style="font-size: 0.75rem; color: #1e3a8a; padding: 0.8rem 0.4rem; background: #eff6ff; display: flex; align-items: center; justify-content: center; flex-direction: column; font-weight: 700; border-radius: 4px 0 0 4px;">
+        자소서 검증
+        <span style="color:#3b82f6; font-size:0.9em; margin-top:2px; font-weight:400;">(내 아이디어)</span>
+      </div>
+      <div style="font-size: 0.75rem; color: #1e40af; padding: 0.8rem 0.4rem; background: #eff6ff; display: flex; align-items: center; justify-content: center; font-weight: 500;">
+        🔺 적음 (2건)
+      </div>
+      <div style="font-size: 0.75rem; color: #1e40af; padding: 0.8rem 0.4rem; background: #eff6ff; display: flex; align-items: center; justify-content: center; font-weight: 800; border-radius: 0 4px 4px 0;">
+        🔺 미지수 (애매함)
+      </div>
+
     </div>
   </div>
 </div>
@@ -138,15 +155,17 @@ redirect_from: #이전주소 입력
 이 선택은 의외로 우리 팀의 **강력한 심리적 안전장치**가 되기도 했다. 해커톤 초반, 다른 팀들이 기술 스택을 정하고 아이디어 브레인 스토밍을 하느라 우왕좌왕할 때, 우리는 빠르게 핵심 기능을 개발하고, QA와 서비스의 완성도를 높이는 데 온전히 집중할 수 있었다. <strong class="highlight-text">과거의 실패가 전화위복이 되어 우리 팀의 큰 경쟁력이 된 순간이었다.</strong>
 
 </div>
+
 <div class="icon-box">
   <div style="display: flex; flex-wrap: wrap; gap: 10px;">
     
-    <a href="https://github.com/ShinHyeong/FactCheckAi" target="_blank" style="flex: 1; min-width: 250px; text-decoration: none; display: flex; align-items: center; justify-content: space-between; background: #fff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 0.7rem 1rem; transition: background 0.2s;">
-      <div style="display: flex; flex-direction: column;">
-        <span style="font-size: 0.9rem; font-weight: 700; color: #1e293b;">🧪 MVP Version</span>
-        <span style="font-size: 0.75rem; color: #64748b;">초기 프로토타입 (Prototype)</span>
+    <a href="https://github.com/ShinHyeong/FactCheckAi" target="_blank" 
+   style="flex: 1; min-width: 250px; text-decoration: none; display: flex; align-items: center; justify-content: space-between; border: 1px solid #cbd5e1; border-radius: 6px; padding: 0.7rem 1rem; transition: all 0.2s ease-in-out;">
+      <div class="btn-text-group" style="display: flex; flex-direction: column;">
+        <span class="btn-title" style="font-size: 0.9rem; font-weight: 700; color: #1e293b;">🧪 MVP Version</span>
+        <span class="btn-sub" style="font-size: 0.75rem; color: #64748b;">초기 프로토타입 (Prototype)</span>
       </div>
-      <div style="font-size: 1rem; color: #94a3b8;">↗</div>
+      <div class="btn-icon" style="font-size: 1rem; color: #94a3b8;">↗</div>
     </a>
 
   </div>
