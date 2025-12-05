@@ -1242,12 +1242,12 @@ $link-color-visited: $black;
 .deep-dive-list {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
 
   /* 리스트 아이템 */
-  .dd-item {
+  .dd-item { //줄
     border-bottom: 1px solid #e2e8f0;
-    padding-bottom: 1.5rem;
+    padding-bottom: 1rem;
 
     &:last-child {
       border-bottom: none;
