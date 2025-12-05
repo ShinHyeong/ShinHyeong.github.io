@@ -69,10 +69,10 @@ Static 메소드의 가장 큰 특징은 <strong class="highlight-text">인스�
 
 <div class="info-box" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; background-color: #f8f9fa; border-radius: 12px; padding: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); color: #333;">
 
-      <div style="background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(231, 76, 60, 0.1);">
+      <div style="background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(231, 76, 60, 0.1); display: flex; flex-direction: column;">
         <h4 style="margin: 0 0 15px 0; font-size: 15px; color: #c0392b; font-weight: 700;">1. 초기 로딩 부담</h4>
         
-        <div style="text-align: center; padding: 5px 0;">
+        <div style="text-align: center; padding: 5px 0; flex: 1; display: flex; flex-direction: column; justify-content: center;">
           <div style="display: flex; align-items: center; justify-content: center; gap: 5px; margin-bottom: 5px;">
              <div style="font-size: 10px; color: #555;">Start 🚀</div>
              <div style="font-size: 12px; color: #aaa;">➡️</div>
@@ -83,6 +83,8 @@ Static 메소드의 가장 큰 특징은 <strong class="highlight-text">인스�
              </div>
           </div>
           
+          <div style="font-size: 11px; color: #c0392b; margin-top: 5px; font-weight: bold;">🐢 로딩 지연 발생</div>
+
           <p style="margin: 15px 0 0 0; font-size: 12px; color: #999; line-height: 1.4;">
             프로그램 시작 시 Method Area에<br>모든 Static 데이터를 한 번에 밀어넣어<br>
 부팅 속도가 느려질 수 있음
@@ -91,32 +93,34 @@ Static 메소드의 가장 큰 특징은 <strong class="highlight-text">인스�
       </div>
 
       <div style="background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(231, 76, 60, 0.1); display: flex; flex-direction: column;">
-        <h4 style="margin: 0 0 15px 0; font-size: 15px; color: #c0392b; font-weight: 700;">2. GC 불가 (메모리 점유)</h4>
+        <h4 style="margin: 0 0 15px 0; font-size: 15px; color: #c0392b; font-weight: 700;">2. GC 불가 (메모리 해제 안 됨)</h4>
         
         <div style="text-align: center; padding: 5px 0; flex: 1; display: flex; flex-direction: column; justify-content: center;">
           
-          <div style="display: flex; gap: 10px; justify-content: center; align-items: stretch; margin-bottom: 5px;">
-            <div style="background: #fff5f5; border: 1px solid #e74c3c; border-radius: 6px; padding: 5px; flex: 1;">
-               <div style="font-size: 8px; color: #c0392b; margin-bottom: 2px;">Method Area</div>
-               <div style="font-size: 20px;">📦🔒</div>
-            </div>
-
-            <div style="width: 1px; background: #eee;"></div>
-
-            <div style="background: #f0f9ff; border: 1px dashed #aaa; border-radius: 6px; padding: 5px; flex: 1; opacity: 0.5;">
-               <div style="font-size: 8px; color: #555; margin-bottom: 2px;">Heap Area</div>
-               <div style="font-size: 20px;">🚛♻️</div>
-            </div>
+          <div style="background: #fff5f5; border: 1px solid #e74c3c; border-radius: 6px; padding: 6px; width: 90%; margin: 0 auto;">
+             <div style="font-size: 9px; color: #c0392b; font-weight: bold; margin-bottom: 2px;">Method Area</div>
+             <div style="display: flex; align-items: center; justify-content: center; gap: 5px;">
+               <span style="font-size: 18px;">📦 🔒</span>
+               <span style="font-size: 10px; color: #c0392b; font-weight: bold;">(앱 종료 시까지)</span>
+             </div>
           </div>
 
-          <p style="margin: 25px 0 0 0; font-size: 12px; color: #999; line-height: 1.4;">
-            Heap(오른쪽)과 달리 <strong>Method Area</strong>는<br>GC의 청소 대상이 아님 (영구 점유)
+          <div style="height: 15px;"></div> <div style="background: #f0f9ff; border: 1px dashed #aaa; border-radius: 6px; padding: 6px; width: 90%; margin: 0 auto; opacity: 0.7;">
+             <div style="font-size: 9px; color: #555; margin-bottom: 2px;">Heap Area</div>
+             <div style="display: flex; align-items: center; justify-content: center; gap: 5px;">
+               <span style="font-size: 18px;">🚛 ♻️</span>
+               <span style="font-size: 10px; color: #555;">(GC 가능)</span>
+             </div>
+          </div>
+
+          <p style="margin: 12px 0 0 0; font-size: 12px; color: #999; line-height: 1.4;">
+            필요 없어져도 GC가 수거하지 않음<br>(프로그램 종료 전까지 계속 남아있음)
           </p>
         </div>
       </div>
-
+      
       <div style="background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(231, 76, 60, 0.1); display: flex; flex-direction: column;">
-        <h4 style="margin: 0 0 15px 0; font-size: 15px; color: #c0392b; font-weight: 700;">3. 인스턴스 변수 접근 불가</h4>
+        <h4 style="margin: 0 0 20px 0; font-size: 15px; color: #c0392b; font-weight: 700;">3. 인스턴스 변수 접근 불가</h4>
         
         <div style="text-align: center; padding: 5px 0; flex: 1; display: flex; flex-direction: column; justify-content: center;">
           
@@ -124,7 +128,7 @@ Static 메소드의 가장 큰 특징은 <strong class="highlight-text">인스�
             <div style="font-size: 9px; font-weight: bold; color: #c0392b;">[Method Area] static method()</div>
           </div>
 
-          <div style="color: #c0392b; font-weight: bold; font-size: 14px; line-height: 1; margin: 15px 0;">⬇️ ❌ (참조 없음)</div>
+          <div style="color: #c0392b; font-weight: bold; font-size: 14px; line-height: 1; margin: 20px 0;">⬇️ ❌ (참조 없음)</div>
 
           <div style="background: #f9f9f9; border: 1px dashed #999; border-radius: 6px; padding: 4px; width: 80%; margin: 0 auto;">
              <div style="font-size: 9px; color: #777;">[Heap Area] this.variable</div>
