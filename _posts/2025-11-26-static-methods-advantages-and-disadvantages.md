@@ -8,9 +8,9 @@ excerpt: "객체 생성 없는 편리함 뒤에 숨겨진 메모리 제약! Stat
 
 ## 장점 <span class="title-sub-desc">: 효율적인 공유와 편의성</span>
 
-<div class="info-box" style="display: flex; gap: 20px; flex-wrap: wrap;">
+<div class="info-box" style="display: flex; gap: 20px; flex-wrap: wrap; background-color: #f8f9fa; border-radius: 12px; padding: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); color: #333;">
       
-      <div style="flex: 1; min-width: 300px; background: #fff; border: 1px solid #3498db; border-left: 5px solid #3498db; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(52, 152, 219, 0.1);">
+      <div style="flex: 1; min-width: 300px; background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(52, 152, 219, 0.1);">
         <h4 style="margin: 0 0 20px 0; font-size: 16px; color: #2980b9; font-weight: 700;">1. 객체 생성 없는 '즉시 호출'</h4>
         
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
@@ -21,7 +21,7 @@ excerpt: "객체 생성 없는 편리함 뒤에 숨겨진 메모리 제약! Stat
           
           <div style="font-size: 12px; color: #ccc;">vs</div>
 
-          <div style="flex: 1; background: #f0f9ff; border: 1px solid #bce3ff; border-radius: 12px; padding: 12px; text-align: center;">
+          <div style="flex: 1; background: #f0f9ff; border-radius: 12px; padding: 12px; text-align: center;">
             <div style="font-size: 24px; margin-bottom: 4px;">⚡️</div>
             <div style="font-size: 13px; font-weight: 800; color: #0077d4;">Class.method()</div>
             <div style="font-size: 11px; color: #0077d4; margin-top: 4px;">바로 실행</div>
@@ -29,7 +29,7 @@ excerpt: "객체 생성 없는 편리함 뒤에 숨겨진 메모리 제약! Stat
         </div>
       </div>
 
-      <div style="flex: 1; min-width: 300px; background: #fff; border: 1px solid #3498db; border-left: 5px solid #3498db; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(52, 152, 219, 0.1);">
+      <div style="flex: 1; min-width: 300px; background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(52, 152, 219, 0.1);">
         <h4 style="margin: 0 0 20px 0; font-size: 16px; color: #2980b9; font-weight: 700;">2. 메모리 효율 (1회 로드)</h4>
         
         <div style="display: flex; align-items: center; justify-content: center; gap: 15px;">
@@ -67,83 +67,104 @@ Static 메소드의 가장 큰 특징은 <strong class="highlight-text">인스�
 
 ## 단점 <span class="title-sub-desc">: 유연성 저하와 메모리 이슈</span>
 
-<div class="info-box" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+<div class="info-box" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; background-color: #f8f9fa; border-radius: 12px; padding: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); color: #333;">
 
-      <div style="background: #fff; border: 1px solid #e74c3c; border-left: 5px solid #e74c3c; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(231, 76, 60, 0.1);">
+      <div style="background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(231, 76, 60, 0.1);">
         <h4 style="margin: 0 0 15px 0; font-size: 15px; color: #c0392b; font-weight: 700;">1. 초기 로딩 부담</h4>
         
         <div style="text-align: center; padding: 5px 0;">
-          <div style="display: flex; align-items: center; justify-content: center; gap: 5px; margin-bottom: 10px;">
-            <div style="font-size: 11px; font-weight: bold; color: #555;">Start</div>
-            <div style="width: 20px; height: 1px; background: #e6b0aa;"></div>
-            
-            <div style="border: 1px solid #e74c3c; padding: 4px; border-radius: 6px; background: #fff5f5;">
-               <div style="width: 30px; height: 4px; background: #e74c3c; margin: 2px auto; border-radius: 2px;"></div>
-               <div style="width: 30px; height: 4px; background: #e74c3c; margin: 2px auto; border-radius: 2px;"></div>
-               <div style="font-size: 8px; color: #c0392b; margin-top: 2px; font-weight: bold;">Heavy</div>
-            </div>
-
-            <div style="width: 20px; height: 1px; background: #e6b0aa;"></div>
-            <div style="font-size: 18px;">🐢</div>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 5px; margin-bottom: 5px;">
+             <div style="font-size: 10px; color: #555;">Start 🚀</div>
+             <div style="font-size: 12px; color: #aaa;">➡️</div>
+             
+             <div style="background: #fff5f5; border: 1px solid #e74c3c; border-radius: 8px; padding: 10px; width: 160px;">
+                <div style="font-size: 9px; color: #c0392b; font-weight: bold; margin-bottom: 4px;">Method Area</div>
+                <div style="background: #e74c3c; color: #fff; font-size: 9px; padding: 6px 2px; border-radius: 4px; font-weight: bold;">Huge Static<br>Block 📦</div>
+             </div>
           </div>
-          <p style="margin: 0; font-size: 12px; color: #999; line-height: 1.4;">
-            시작할 때 한꺼번에 로딩되어<br>부팅 속도가 느려질 수 있음
+          
+          <p style="margin: 15px 0 0 0; font-size: 12px; color: #999; line-height: 1.4;">
+            프로그램 시작 시 Method Area에<br>모든 Static 데이터를 한 번에 밀어넣어<br>
+부팅 속도가 느려질 수 있음
           </p>
         </div>
       </div>
 
-      <div style="background: #fff; border: 1px solid #e74c3c; border-left: 5px solid #e74c3c; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(231, 76, 60, 0.1);">
+      <div style="background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(231, 76, 60, 0.1); display: flex; flex-direction: column;">
         <h4 style="margin: 0 0 15px 0; font-size: 15px; color: #c0392b; font-weight: 700;">2. GC 불가 (메모리 점유)</h4>
         
-        <div style="text-align: center; padding: 5px 0;">
-          <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 10px;">
-            <div style="position: relative;">
-              <span style="font-size: 24px;">📦</span>
-              <span style="position: absolute; bottom: 0; right: -5px; font-size: 12px;">🔒</span>
+        <div style="text-align: center; padding: 5px 0; flex: 1; display: flex; flex-direction: column; justify-content: center;">
+          
+          <div style="display: flex; gap: 10px; justify-content: center; align-items: stretch; margin-bottom: 5px;">
+            <div style="background: #fff5f5; border: 1px solid #e74c3c; border-radius: 6px; padding: 5px; flex: 1;">
+               <div style="font-size: 8px; color: #c0392b; margin-bottom: 2px;">Method Area</div>
+               <div style="font-size: 20px;">📦🔒</div>
             </div>
-            <span style="font-size: 14px; color: #e6b0aa;">...</span>
-            <div style="opacity: 0.5;">
-              <span style="font-size: 20px;">🚛</span>
-              <div style="font-size: 9px; text-decoration: line-through;">Pass</div>
+
+            <div style="width: 1px; background: #eee;"></div>
+
+            <div style="background: #f0f9ff; border: 1px dashed #aaa; border-radius: 6px; padding: 5px; flex: 1; opacity: 0.5;">
+               <div style="font-size: 8px; color: #555; margin-bottom: 2px;">Heap Area</div>
+               <div style="font-size: 20px;">🚛♻️</div>
             </div>
           </div>
-          <p style="margin: 0; font-size: 12px; color: #999; line-height: 1.4;">
-            Garbage Collector가<br>수거하지 않아 메모리에 계속 남음
+
+          <p style="margin: 25px 0 0 0; font-size: 12px; color: #999; line-height: 1.4;">
+            Heap(오른쪽)과 달리 <strong>Method Area</strong>는<br>GC의 청소 대상이 아님 (영구 점유)
           </p>
         </div>
       </div>
 
-      <div style="background: #fff; border: 1px solid #e74c3c; border-left: 5px solid #e74c3c; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(231, 76, 60, 0.1); display: flex; flex-direction: column;">
+      <div style="background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(231, 76, 60, 0.1); display: flex; flex-direction: column;">
         <h4 style="margin: 0 0 15px 0; font-size: 15px; color: #c0392b; font-weight: 700;">3. 인스턴스 변수 접근 불가</h4>
         
         <div style="text-align: center; padding: 5px 0; flex: 1; display: flex; flex-direction: column; justify-content: center;">
-          <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 10px;">
-            <div style="border: 1px solid #c0392b; padding: 4px 8px; border-radius: 6px; font-size: 10px; font-weight: bold; color: #c0392b;">Static</div>
-            <div style="font-size: 14px;">✋ 🚫</div>
-            <div style="border: 1px dashed #bbb; padding: 4px 8px; border-radius: 6px; font-size: 10px; color: #aaa;">this.변수</div>
+          
+          <div style="background: #fff; border: 2px solid #c0392b; border-radius: 6px; padding: 4px; width: 80%; margin: 0 auto;">
+            <div style="font-size: 9px; font-weight: bold; color: #c0392b;">[Method Area] static method()</div>
           </div>
-          <p style="margin: 0; font-size: 12px; color: #999; line-height: 1.4;">
-            객체 고유의 값(인스턴스 변수)에는<br>접근할 수 없음
+
+          <div style="color: #c0392b; font-weight: bold; font-size: 14px; line-height: 1; margin: 15px 0;">⬇️ ❌ (참조 없음)</div>
+
+          <div style="background: #f9f9f9; border: 1px dashed #999; border-radius: 6px; padding: 4px; width: 80%; margin: 0 auto;">
+             <div style="font-size: 9px; color: #777;">[Heap Area] this.variable</div>
+          </div>
+
+          <p style="margin: 15px 0 0 0; font-size: 12px; color: #999; line-height: 1.4;">
+            메모리 영역이 달라서<br>객체(Heap)의 변수를 볼 수 없음
           </p>
         </div>
       </div>
 
-      <div style="background: #fff; border: 1px solid #e74c3c; border-left: 5px solid #e74c3c; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(231, 76, 60, 0.1);">
+      <div style="background: #fff;border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(231, 76, 60, 0.1);">
         <h4 style="margin: 0 0 15px 0; font-size: 15px; color: #c0392b; font-weight: 700;">4. 오버라이딩 불가</h4>
         
         <div style="text-align: center; padding: 5px 0;">
-          <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; margin-bottom: 10px;">
-            <div style="border: 1px solid #999; padding: 4px 8px; border-radius: 4px; font-size: 10px;">👴 부모 (Static)</div>
-            <div style="font-size: 12px; color: #c0392b; font-weight: bold;">↓ ❌ 변경불가</div>
-            <div style="border: 1px dashed #bbb; padding: 4px 8px; border-radius: 4px; font-size: 10px; color: #aaa;">👶 자식</div>
+          <div style="background: #f8f9fa; border: 1px solid #eee; padding: 6px; border-radius: 4px; font-family: monospace; font-size: 11px; color: #555; margin-bottom: 10px;">
+            <span style="color: #c0392b; font-weight: bold;">Parent</span> p = new Child();
           </div>
+
+          <div style="display: flex; gap: 10px; justify-content: center; align-items: stretch; margin-bottom: 10px;">
+            <div style="flex: 1; border: 1px solid #c0392b; background: #fff5f5; border-radius: 6px; padding: 6px;">
+               <div style="font-size: 9px; color: #c0392b; font-weight: bold;">Compile Time</div>
+               <div style="font-size: 18px; margin: 2px 0;">🔨</div>
+               <div style="font-size: 9px; color: #555; line-height: 1.2;">변수타입(Parent) 보고 <strong>결정됨</strong></div>
+            </div>
+
+            <div style="flex: 1; border: 1px dashed #aaa; border-radius: 6px; padding: 6px; opacity: 0.5;">
+               <div style="font-size: 9px; color: #777;">Run Time</div>
+               <div style="font-size: 18px; margin: 2px 0;">🏃‍♂️</div>
+               <div style="font-size: 9px; color: #777; line-height: 1.2;">실제 객체(Child) 확인 안 함</div>
+            </div>
+          </div>
+          
           <p style="margin: 0; font-size: 12px; color: #999; line-height: 1.4;">
-            상속받아 기능을 변경하는<br>다형성 활용이 불가능함
+            컴파일 시점에 결정(Static Binding)되므로<br>런타임의 오버라이딩 불가능
           </p>
         </div>
       </div>
 
-    </div>
+</div>
 
 <div class="story-box" markdown="1">
 
