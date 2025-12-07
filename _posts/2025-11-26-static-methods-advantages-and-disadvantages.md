@@ -1,7 +1,8 @@
 ---
-title:  "Static 메소드의 장단점"
+title:  "[Java] 메모리 구조로 알아보는 Static 메소드의 장단점"
 categories: Java
-excerpt: "객체 생성 없는 편리함 뒤에 숨겨진 메모리 제약! Static 메소드의 작동 원리를 통해 그 장단점을 명확히 알아보자."
+excerpt: "객체 생성 없는 편리함 뒤에 숨겨진 메모리 제약! Static 메소드의 작동 원리를 통해 그 장단점을 명확히 알아봅시다."
+description: "Java Static 메소드의 장점(편의성, 공유)과 치명적인 단점(GC 미적용, 오버라이딩 불가)을 메모리 구조(Method Area vs Heap) 관점에서 알아봅시다. 또, 객체지향 설계에서 Static 남용이 왜 위험한지, 올바른 사용 기준은 무엇인지 알아봅시다."
 ---
 # Static 메소드의 장단점
 

@@ -1,7 +1,8 @@
 ---
-title: "Chapter1. Classic Architecture"
+title: "[AWS-SAA] Classic Architecture : 고가용성과 확장성을 위한 인프라 설계"
 categories: AWS-SAA
-excerpt: "고가용성과 확장성을 갖춘 서비스를 배포하는 가장 오래된 방법에 대해 알아보자"
+excerpt: "컴퓨팅, 스토리지, 데이터베이스, 네트워크 각 계층별 핵심 서비스의 특징과 실무 적용 포인트를 알아봅시다."
+description: "AWS SAA 자격증 필수 개념인 EC2(인스턴스 유형, AMI, 보안 그룹), 고가용성 아키텍처(ELB, ASG), 관계형 데이터베이스(RDS, Aurora, ElastiCache), 그리고 DNS 및 트래픽 라우팅(Route53, Global Accelerator)을 정리했습니다."
 #redirect_from: #이전주소 입력
 #search: false #만약 이 글이 검색되지 않기를 바란다면
 #use_math: true #수식이 필요한 경우만 사용
