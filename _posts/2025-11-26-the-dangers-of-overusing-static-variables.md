@@ -1,7 +1,8 @@
 ---
-title:  "Static 변수를 남용하면 안되는 이유"
+title:  "[Java] Static 변수를 남용하면 안되는 이유 (단점)"
 categories: Java
-excerpt: "편리해 보이지만 위험한 Static 변수. Static 변수의 특성을 생각하며, 메모리 구조와 멀티스레드 환경에서의 치명적인 단점을 알아보자."
+excerpt: "편리해 보이지만 위험한 Static 변수! Static 변수의 특성을 생각하며, 메모리 구조와 멀티스레드 환경에서의 치명적인 단점을 알아봅시다."
+description: "Java Static 변수와 인스턴스 변수의 메모리 구조 차이(Method Area vs Heap)를 비교하고, Static 남용 시 발생하는 데이터 덮어쓰기 및 멀티스레드 환경에서의 동시성 문제(Race Condition)를 구체적인 예시로 알아봅니다." #SEO
 #redirect_from: #이전주소 입력
 #search: false #만약 이 글이 검색되지 않기를 바란다면
 #use_math: true #수식이 필요한 경우만 사용
