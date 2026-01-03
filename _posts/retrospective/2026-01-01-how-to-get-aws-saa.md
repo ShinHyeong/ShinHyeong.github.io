@@ -147,9 +147,97 @@ SAA 문제는 시나리오가 길기에 자칫하면 핵심 요구사항을 놓�
 
 ### 오답노트 복습 - 공식 최종 보완
 
+<img src="{{site.url}}/assets/images/2026-01-01-how-to-get-aws-saa/identifying-weaknesses-through-mistake-review-notes-by-gemini.png" 
+     alt="identifying-weaknesses-through-mistake-review-notes-by-gemini" 
+     style="display: block; margin: 2rem auto; max-width: 90%; height: auto;">
+
 2주간 꾸준히 작성한 오답노트는 저의 **약점이 집약된 데이터베이스**라고 생각했습니다. 누적된 오답노트 내용을 Gemini에게 보여주며 <strong class="highlight-text">"내 취약점을 분석하고, 어떤 개념을 보강해야 하는지 알려줘"</strong>라고 요청했습니다. 이를 통해 자주 혼동하는 개념이나 놓치는 부분을 다시 한번 정확히 정리하며 공식을 보완했습니다.
 
 ### 전체 인프라 관점에서의 큰 그림 그려보기
+
+<div class="info-box">
+<div style="width: 800px; margin: 0 auto; font-family: 'Pretendard', -apple-system, sans-serif; letter-spacing: -0.02em; color: #374151;">
+  
+  <div style="display: flex; align-items: stretch; gap: 8px; margin-bottom: 12px;">
+    
+    <div style="flex: 1; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 15px 5px; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+      <div style="font-weight: 800; font-size: 0.9rem; color: #111827; margin-bottom: 8px;">0. 가속</div>
+      <div style="font-size: 0.8rem; color: #6b7280; line-height: 1.5; height: 40px; display: flex; flex-direction: column; justify-content: center;">
+        Route 53<br>CloudFront
+      </div>
+      <div style="font-size: 0.75rem; color: #111827; font-weight: 700; margin-top: 8px; border-top: 1px solid #f3f4f6; padding-top: 6px;">접속 경로 가속</div>
+    </div>
+
+    <div style="align-self: center; color: #d1d5db; font-size: 14px;">▶</div>
+
+    <div style="flex: 1; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 15px 5px; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+      <div style="font-weight: 800; font-size: 0.9rem; color: #111827; margin-bottom: 8px;">1. 기초</div>
+      <div style="font-size: 0.8rem; color: #6b7280; line-height: 1.5; height: 40px; display: flex; flex-direction: column; justify-content: center;">
+        VPC · IAM<br>GW · EP
+      </div>
+      <div style="font-size: 0.75rem; color: #111827; font-weight: 700; margin-top: 8px; border-top: 1px solid #f3f4f6; padding-top: 6px;">네트워크 망 구축</div>
+    </div>
+
+    <div style="align-self: center; color: #d1d5db; font-size: 14px;">▶</div>
+
+    <div style="flex: 1; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 15px 5px; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+      <div style="font-weight: 800; font-size: 0.9rem; color: #111827; margin-bottom: 8px;">2. 실행</div>
+      <div style="font-size: 0.8rem; color: #6b7280; line-height: 1.5; height: 40px; display: flex; flex-direction: column; justify-content: center;">
+        EC2 · ASG<br>EBS · Fargate
+      </div>
+      <div style="font-size: 0.75rem; color: #111827; font-weight: 700; margin-top: 8px; border-top: 1px solid #f3f4f6; padding-top: 6px;">연산 자원 생성</div>
+    </div>
+
+    <div style="align-self: center; color: #d1d5db; font-size: 14px;">▶</div>
+
+    <div style="flex: 1; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 15px 5px; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+      <div style="font-weight: 800; font-size: 0.9rem; color: #111827; margin-bottom: 8px;">3. 저장</div>
+      <div style="font-size: 0.8rem; color: #6b7280; line-height: 1.5; height: 40px; display: flex; flex-direction: column; justify-content: center;">
+        S3 · RDS<br>DynamoDB
+      </div>
+      <div style="font-size: 0.75rem; color: #111827; font-weight: 700; margin-top: 8px; border-top: 1px solid #f3f4f6; padding-top: 6px;">데이터 저장소</div>
+    </div>
+  </div>
+
+  <div style="display: flex; align-items: stretch; gap: 8px;">
+    
+    <div style="flex: 1; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 15px 5px; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+      <div style="font-weight: 800; font-size: 0.9rem; color: #111827; margin-bottom: 8px;">4. 연계</div>
+      <div style="font-size: 0.8rem; color: #6b7280; line-height: 1.5; height: 40px; display: flex; flex-direction: column; justify-content: center;">
+        Lambda · ALB<br>SQS · SNS
+      </div>
+      <div style="font-size: 0.75rem; color: #111827; font-weight: 700; margin-top: 8px; border-top: 1px solid #f3f4f6; padding-top: 6px;">서비스 연결 최적화</div>
+    </div>
+
+    <div style="align-self: center; color: #d1d5db; font-size: 14px;">▶</div>
+
+    <div style="flex: 1; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 15px 5px; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+      <div style="font-weight: 800; font-size: 0.9rem; color: #111827; margin-bottom: 8px;">5. 관리</div>
+      <div style="font-size: 0.8rem; color: #6b7280; line-height: 1.5; height: 40px; display: flex; flex-direction: column; justify-content: center;">
+        CloudWatch<br>CloudTrail
+      </div>
+      <div style="font-size: 0.75rem; color: #111827; font-weight: 700; margin-top: 8px; border-top: 1px solid #f3f4f6; padding-top: 6px;">상태 감시 및 기록</div>
+    </div>
+
+    <div style="align-self: center; color: #d1d5db; font-size: 14px;">▶</div>
+
+    <div style="flex: 1; background: #f3f4f6; border: 1px solid #d1d5db; border-radius: 8px; padding: 15px 5px; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+      <div style="font-weight: 800; font-size: 0.9rem; color: #111827; margin-bottom: 8px;">6. 보안</div>
+      <div style="font-size: 0.8rem; color: #4b5563; line-height: 1.5; height: 40px; display: flex; flex-direction: column; justify-content: center;">
+        KMS · WAF<br>Secrets Manager
+      </div>
+      <div style="font-size: 0.75rem; color: #111827; font-weight: 700; margin-top: 8px; border-top: 1px solid #d1d5db; padding-top: 6px;">인프라 보안 강화</div>
+    </div>
+
+    <div style="align-self: center; color: #d1d5db; font-size: 14px;">▶</div>
+
+    <div style="flex: 1; background: #ffffff; border: 1px dashed #d1d5db; border-radius: 8px; padding: 15px 5px; text-align: center; display: flex; align-items: center; justify-content: center;">
+      <div style="font-weight: 700; font-size: 0.85rem; color: #9ca3af;">인프라 구축 완료</div>
+    </div>
+
+  </div>
+</div>
+</div>
 
 1장부터 16장까지의 개별 서비스를 넘어, 이들이 어떻게 <strong class="highlight-text">유기적으로 연결</strong>되어 하나의 완성된 인프라를 구성하는지 큰 그림을 그리며 정리했습니다. 이를 통해 **이름이 비슷해서 헷갈리는 개념**(예: Global Accelerator vs Transfer Accelerator) 또한 정리하며 확실히 구분할 수 있었습니다.
 
@@ -158,6 +246,10 @@ SAA 문제는 시나리오가 길기에 자칫하면 핵심 요구사항을 놓�
 <br>
 
 # 3. 느낀점 <span class="title-sub-desc">: 자격증, 그 이상의 가치를 얻으며</span>
+
+<img src="{{site.url}}/assets/images/2026-01-01-how-to-get-aws-saa/saa-certi.png" 
+     alt="saa-certi" 
+     style="display: block; margin: 2rem auto; max-width: 90%; height: auto;">
 
 <div class="story-box" markdown="1">
 
