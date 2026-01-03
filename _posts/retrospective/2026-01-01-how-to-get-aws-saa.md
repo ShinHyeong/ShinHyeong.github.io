@@ -31,6 +31,41 @@ tags: [AWS, SAA, SAA-C03, 후기, 회고, 합격, 취득, 넥스트클라우드,
 
 ## "서버가 늘어나면, 업로드한 파일은 어디로 가야 하지?"
 
+<div class="info-box">
+<div style="border: 1px solid #e1e4e8; border-radius: 12px; padding: 30px 20px; background-color: #f8f9fa; font-family: sans-serif; margin: 20px 0;">
+    <div style="display: flex; justify-content: center; align-items: stretch; gap: 30px; flex-wrap: wrap;">
+        
+        <div style="flex: 1 1 160px; max-width: 180px; border: 2px solid #007bff; border-radius: 8px; padding: 15px; background: white; display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
+            <div style="font-size: 28px; margin-bottom: 5px;">🖥️</div>
+            <div style="font-weight: bold; font-size: 14px; color: #333;">Server A</div>
+            <div style="color: #6c757d; font-size: 11px; margin-bottom: 10px;">(기존 서버)</div>
+            <div style="background: #e7f3ff; border: 1px dashed #007bff; border-radius: 4px; font-size: 11px; padding: 8px 5px; margin-top: auto; color: #007bff; width: 100%; text-align: center; box-sizing: border-box; font-weight: bold;">
+                ✅ users.csv 있음
+            </div>
+        </div>
+
+        <div style="flex: 1 1 160px; max-width: 180px; border: 2px solid #dc3545; border-radius: 8px; padding: 15px; background: white; display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
+            <div style="font-size: 28px; margin-bottom: 5px; opacity: 0.7;">🖥️</div>
+            <div style="font-weight: bold; font-size: 14px; color: #333;">Server B</div>
+            <div style="color: #6c757d; font-size: 11px; margin-bottom: 10px;">(추가 서버 1)</div>
+            <div style="background: #fff5f5; border: 1px solid #dc3545; border-radius: 4px; font-size: 11px; padding: 8px 5px; margin-top: auto; color: #dc3545; font-weight: bold; width: 100%; text-align: center; box-sizing: border-box;">
+                ❌ 파일 없음
+            </div>
+        </div>
+        
+         <div style="flex: 1 1 160px; max-width: 180px; border: 2px solid #dc3545; border-radius: 8px; padding: 15px; background: white; display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
+            <div style="font-size: 28px; margin-bottom: 5px; opacity: 0.7;">🖥️</div>
+            <div style="font-weight: bold; font-size: 14px; color: #333;">Server C</div>
+            <div style="color: #6c757d; font-size: 11px; margin-bottom: 10px;">(추가 서버 2)</div>
+            <div style="background: #fff5f5; border: 1px solid #dc3545; border-radius: 4px; font-size: 11px; padding: 8px 5px; margin-top: auto; color: #dc3545; font-weight: bold; width: 100%; text-align: center; box-sizing: border-box;">
+                ❌ 파일 없음
+            </div>
+        </div>
+        
+    </div>
+</div>
+</div>
+
 파일 업로드 API를 구현하다 문득 고민이 들었습니다. '지금은 서버가 한 대지만, 나중에 트래픽이 늘어나 <strong class="highlight-text">서버를 여러 대로 확장하게 되면</strong> 다른 서버에 저장된 파일을 어떻게 불러와야 하지?'
 
 서버의 상태에 의존하지 않는 안정적인 환경을 만들기 위해 **외부 공용 스토리지**가 필요하다는 결론에 도달했고, 자연스럽게 AWS S3를 접하게 되었습니다. 이 과정에서 Presigned URL을 통해 무거운 파일 전송은 S3에 위임하고, 서버는 인증만 담당하여 최적화 시키는 구조를 접했습니다. <strong class="highlight-text">설계 하나로 서비스 전체 안정성이 높아지는 것</strong>을 직접 보며, 인프라 지식의 중요성을 실감할 수 있었습니다.
