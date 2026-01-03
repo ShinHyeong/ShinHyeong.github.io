@@ -158,81 +158,81 @@ SAA 문제는 시나리오가 길기에 자칫하면 핵심 요구사항을 놓�
 <div class="info-box">
 <div style="width: 800px; margin: 0 auto; font-family: 'Pretendard', -apple-system, sans-serif; letter-spacing: -0.02em; color: #374151;">
   
-  <div style="display: flex; align-items: stretch; gap: 8px; margin-bottom: 12px;">
+  <div style="display: flex; align-items: stretch; gap: 6px; margin-bottom: 8px;">
     
-    <div style="flex: 1; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 15px 5px; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
-      <div style="font-weight: 800; font-size: 0.9rem; color: #111827; margin-bottom: 8px;">0. 가속</div>
-      <div style="font-size: 0.8rem; color: #6b7280; line-height: 1.5; height: 40px; display: flex; flex-direction: column; justify-content: center;">
+    <div style="flex: 1; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 6px; padding: 10px 4px; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.03);">
+      <div style="font-weight: 800; font-size: 0.8rem; color: #111827; margin-bottom: 4px;">0. 가속</div>
+      <div style="font-size: 0.7rem; color: #6b7280; line-height: 1.4; height: 32px; display: flex; flex-direction: column; justify-content: center;">
         Route 53<br>CloudFront
       </div>
-      <div style="font-size: 0.75rem; color: #111827; font-weight: 700; margin-top: 8px; border-top: 1px solid #f3f4f6; padding-top: 6px;">접속 경로 가속</div>
+      <div style="font-size: 0.65rem; color: #111827; font-weight: 700; margin-top: 6px; border-top: 1px solid #f3f4f6; padding-top: 4px;">접속 경로 가속</div>
     </div>
 
-    <div style="align-self: center; color: #d1d5db; font-size: 14px;">▶</div>
+    <div style="align-self: center; color: #d1d5db; font-size: 12px;">▶</div>
 
-    <div style="flex: 1; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 15px 5px; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
-      <div style="font-weight: 800; font-size: 0.9rem; color: #111827; margin-bottom: 8px;">1. 기초</div>
-      <div style="font-size: 0.8rem; color: #6b7280; line-height: 1.5; height: 40px; display: flex; flex-direction: column; justify-content: center;">
+    <div style="flex: 1; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 6px; padding: 10px 4px; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.03);">
+      <div style="font-weight: 800; font-size: 0.8rem; color: #111827; margin-bottom: 4px;">1. 기초</div>
+      <div style="font-size: 0.7rem; color: #6b7280; line-height: 1.4; height: 32px; display: flex; flex-direction: column; justify-content: center;">
         VPC · IAM<br>GW · EP
       </div>
-      <div style="font-size: 0.75rem; color: #111827; font-weight: 700; margin-top: 8px; border-top: 1px solid #f3f4f6; padding-top: 6px;">네트워크 망 구축</div>
+      <div style="font-size: 0.65rem; color: #111827; font-weight: 700; margin-top: 6px; border-top: 1px solid #f3f4f6; padding-top: 4px;">네트워크 망 구축</div>
     </div>
 
-    <div style="align-self: center; color: #d1d5db; font-size: 14px;">▶</div>
+    <div style="align-self: center; color: #d1d5db; font-size: 12px;">▶</div>
 
-    <div style="flex: 1; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 15px 5px; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
-      <div style="font-weight: 800; font-size: 0.9rem; color: #111827; margin-bottom: 8px;">2. 실행</div>
-      <div style="font-size: 0.8rem; color: #6b7280; line-height: 1.5; height: 40px; display: flex; flex-direction: column; justify-content: center;">
+    <div style="flex: 1; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 6px; padding: 10px 4px; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.03);">
+      <div style="font-weight: 800; font-size: 0.8rem; color: #111827; margin-bottom: 4px;">2. 실행</div>
+      <div style="font-size: 0.7rem; color: #6b7280; line-height: 1.4; height: 32px; display: flex; flex-direction: column; justify-content: center;">
         EC2 · ASG<br>EBS · Fargate
       </div>
-      <div style="font-size: 0.75rem; color: #111827; font-weight: 700; margin-top: 8px; border-top: 1px solid #f3f4f6; padding-top: 6px;">연산 자원 생성</div>
+      <div style="font-size: 0.65rem; color: #111827; font-weight: 700; margin-top: 6px; border-top: 1px solid #f3f4f6; padding-top: 4px;">연산 자원 생성</div>
     </div>
 
-    <div style="align-self: center; color: #d1d5db; font-size: 14px;">▶</div>
+    <div style="align-self: center; color: #d1d5db; font-size: 12px;">▶</div>
 
-    <div style="flex: 1; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 15px 5px; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
-      <div style="font-weight: 800; font-size: 0.9rem; color: #111827; margin-bottom: 8px;">3. 저장</div>
-      <div style="font-size: 0.8rem; color: #6b7280; line-height: 1.5; height: 40px; display: flex; flex-direction: column; justify-content: center;">
+    <div style="flex: 1; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 6px; padding: 10px 4px; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.03);">
+      <div style="font-weight: 800; font-size: 0.8rem; color: #111827; margin-bottom: 4px;">3. 저장</div>
+      <div style="font-size: 0.7rem; color: #6b7280; line-height: 1.4; height: 32px; display: flex; flex-direction: column; justify-content: center;">
         S3 · RDS<br>DynamoDB
       </div>
-      <div style="font-size: 0.75rem; color: #111827; font-weight: 700; margin-top: 8px; border-top: 1px solid #f3f4f6; padding-top: 6px;">데이터 저장소</div>
+      <div style="font-size: 0.65rem; color: #111827; font-weight: 700; margin-top: 6px; border-top: 1px solid #f3f4f6; padding-top: 4px;">데이터 저장소</div>
     </div>
   </div>
 
-  <div style="display: flex; align-items: stretch; gap: 8px;">
+  <div style="display: flex; align-items: stretch; gap: 6px;">
     
-    <div style="flex: 1; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 15px 5px; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
-      <div style="font-weight: 800; font-size: 0.9rem; color: #111827; margin-bottom: 8px;">4. 연계</div>
-      <div style="font-size: 0.8rem; color: #6b7280; line-height: 1.5; height: 40px; display: flex; flex-direction: column; justify-content: center;">
+    <div style="flex: 1; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 6px; padding: 10px 4px; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.03);">
+      <div style="font-weight: 800; font-size: 0.8rem; color: #111827; margin-bottom: 4px;">4. 연계</div>
+      <div style="font-size: 0.7rem; color: #6b7280; line-height: 1.4; height: 32px; display: flex; flex-direction: column; justify-content: center;">
         Lambda · ALB<br>SQS · SNS
       </div>
-      <div style="font-size: 0.75rem; color: #111827; font-weight: 700; margin-top: 8px; border-top: 1px solid #f3f4f6; padding-top: 6px;">서비스 연결 최적화</div>
+      <div style="font-size: 0.65rem; color: #111827; font-weight: 700; margin-top: 6px; border-top: 1px solid #f3f4f6; padding-top: 4px;">서비스 연결 최적화</div>
     </div>
 
-    <div style="align-self: center; color: #d1d5db; font-size: 14px;">▶</div>
+    <div style="align-self: center; color: #d1d5db; font-size: 12px;">▶</div>
 
-    <div style="flex: 1; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 15px 5px; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
-      <div style="font-weight: 800; font-size: 0.9rem; color: #111827; margin-bottom: 8px;">5. 관리</div>
-      <div style="font-size: 0.8rem; color: #6b7280; line-height: 1.5; height: 40px; display: flex; flex-direction: column; justify-content: center;">
+    <div style="flex: 1; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 6px; padding: 10px 4px; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.03);">
+      <div style="font-weight: 800; font-size: 0.8rem; color: #111827; margin-bottom: 4px;">5. 관리</div>
+      <div style="font-size: 0.7rem; color: #6b7280; line-height: 1.4; height: 32px; display: flex; flex-direction: column; justify-content: center;">
         CloudWatch<br>CloudTrail
       </div>
-      <div style="font-size: 0.75rem; color: #111827; font-weight: 700; margin-top: 8px; border-top: 1px solid #f3f4f6; padding-top: 6px;">상태 감시 및 기록</div>
+      <div style="font-size: 0.65rem; color: #111827; font-weight: 700; margin-top: 6px; border-top: 1px solid #f3f4f6; padding-top: 4px;">상태 감시 및 기록</div>
     </div>
 
-    <div style="align-self: center; color: #d1d5db; font-size: 14px;">▶</div>
+    <div style="align-self: center; color: #d1d5db; font-size: 12px;">▶</div>
 
-    <div style="flex: 1; background: #f3f4f6; border: 1px solid #d1d5db; border-radius: 8px; padding: 15px 5px; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
-      <div style="font-weight: 800; font-size: 0.9rem; color: #111827; margin-bottom: 8px;">6. 보안</div>
-      <div style="font-size: 0.8rem; color: #4b5563; line-height: 1.5; height: 40px; display: flex; flex-direction: column; justify-content: center;">
-        KMS · WAF<br>Secrets Manager
+    <div style="flex: 1; background: #f3f4f6; border: 1px solid #d1d5db; border-radius: 6px; padding: 10px 4px; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.03);">
+      <div style="font-weight: 800; font-size: 0.8rem; color: #111827; margin-bottom: 4px;">6. 보안</div>
+      <div style="font-size: 0.7rem; color: #4b5563; line-height: 1.4; height: 32px; display: flex; flex-direction: column; justify-content: center;">
+        KMS · WAF<br>Secrets Mgr
       </div>
-      <div style="font-size: 0.75rem; color: #111827; font-weight: 700; margin-top: 8px; border-top: 1px solid #d1d5db; padding-top: 6px;">인프라 보안 강화</div>
+      <div style="font-size: 0.65rem; color: #111827; font-weight: 700; margin-top: 6px; border-top: 1px solid #d1d5db; padding-top: 4px;">인프라 보안 강화</div>
     </div>
 
-    <div style="align-self: center; color: #d1d5db; font-size: 14px;">▶</div>
+    <div style="align-self: center; color: #d1d5db; font-size: 12px;">▶</div>
 
-    <div style="flex: 1; background: #ffffff; border: 1px dashed #d1d5db; border-radius: 8px; padding: 15px 5px; text-align: center; display: flex; align-items: center; justify-content: center;">
-      <div style="font-weight: 700; font-size: 0.85rem; color: #9ca3af;">인프라 구축 완료</div>
+    <div style="flex: 1; background: #ffffff; border: 1px dashed #d1d5db; border-radius: 6px; padding: 10px 4px; text-align: center; display: flex; align-items: center; justify-content: center;">
+      <div style="font-weight: 700; font-size: 0.75rem; color: #9ca3af;">Architecture<br>Complete</div>
     </div>
 
   </div>
