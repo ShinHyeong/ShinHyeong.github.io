@@ -114,7 +114,7 @@ layout: default
           <div class="nav-label">
             <i class="fas fa-arrow-left"></i> <span>이전 글</span>
           </div>
-          <div class="nav-title">{{ page.previous.title }}</div>
+          <div class="nav-title">{{ page.previous.title | truncate: 100 }}</div>
         </a>
       {% else %}
         <div class="nav-spacer"></div> 
@@ -125,7 +125,7 @@ layout: default
           <div class="nav-label">
             <span>다음 글</span> <i class="fas fa-arrow-right"></i>
           </div>
-          <div class="nav-title">{{ page.next.title }}</div>
+          <div class="nav-title">{{ page.next.title | truncate: 100 }}</div>
         </a>
       {% else %}
         <div class="nav-spacer"></div>

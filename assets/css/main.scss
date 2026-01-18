@@ -1372,3 +1372,32 @@ $link-color-visited: $black;
     }
   }
 }
+
+
+/* 하단 네비게이션 컨테이너 */
+.post-navigation-container {
+  display: flex !important;
+  justify-content: space-between;
+  width: 100% !important;
+  max-width: 100% !important;
+  gap: 20px;
+  box-sizing: border-box;
+  clear: both;
+}
+
+/* 개별 네비게이션 카드 */
+.nav-card {
+  flex: 1;          /* 좌우 카드가 동일한 비율로 너비를 가짐 */
+  min-width: 0;     /* 중요: flex 자식 요소에서 말줄임표가 작동하게 함 */
+  max-width: 50%;
+  text-decoration: none;
+}
+
+/* 제목 텍스트 생략 처리 */
+.nav-title {
+  white-space: nowrap;    /* 줄바꿈 방지 */
+  overflow: hidden;       /* 영역 밖 숨김 */
+  text-overflow: ellipsis; /* ... 표시 */
+  display: block;
+  width: 100%;
+}
