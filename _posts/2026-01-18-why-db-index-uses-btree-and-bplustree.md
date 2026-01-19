@@ -85,11 +85,19 @@ tags: [인덱스, Index, 인덱스자료구조, 자료구조, B-Tree, B+Tree, �
 
 ## 후보1 : 이론상 가장 빠른 해시인덱스
 
+<img src="{{site.url}}/assets/images/2026-01-18-why-db-index-uses-btree-and-bplustree/hash-index-disadvantage.png" 
+     alt="hash-index-disadvantage" 
+     style="display: block; margin: 2rem auto; max-width: 70%; height: auto;">
+
 해시자료구조는 특정 값을 찾는 동등비교(=)연산에서 O(1)의 속도를 보장하기 때문에 이론상 가장 빠릅니다.
 
 그러나, <strong class="highlight-text">데이터가 정렬되어 있지 않아</strong> **범위검색(<, >, BETWEEN)이 불가능**합니다. 따라서 범용적인 DB 인덱스로는 한계가 명확합니다.
 
 ## 후보2 : 그렇다면 정렬된 구조인 BST(이진탐색트리)는?
+
+<img src="{{site.url}}/assets/images/2026-01-18-why-db-index-uses-btree-and-bplustree/bst-disadvantage.png" 
+     alt="bst-disadvantage" 
+     style="display: block; margin: 2rem auto; max-width: 90%; height: auto;">
 
 그렇다면 정렬된 구조인 이진탐색트리는 어떨까요?
 
@@ -102,6 +110,10 @@ tags: [인덱스, Index, 인덱스자료구조, 자료구조, B-Tree, B+Tree, �
 
 ## 후보3: 스스로 균형을 잡는 트리 AVL은 어때? (레드블랙트리)
 
+<img src="{{site.url}}/assets/images/2026-01-18-why-db-index-uses-btree-and-bplustree/avl_disadvantage.png" 
+     alt="avl-disadvantage" 
+     style="display: block; margin: 2rem auto; max-width: 80%; height: auto;">
+
 균형이진트리는 데이터 삽입/삭제시 **스스로 구조를 재조정**하여 항상 균형을 유지합니다. 따라서 BST의 최악의 경우인 O(n)을 방지하고, 어떤 상황에서도 O(log n)의 조회 성능을 보장합니다.
 
 하지만 균형이 잡혀도 자식노드가 2개뿐인 이진트리는 데이터 양이 많아질수록 필연적으로 **트리의 높이가 매우 깊어집니다.**
@@ -112,6 +124,10 @@ tags: [인덱스, Index, 인덱스자료구조, 자료구조, B-Tree, B+Tree, �
 
 # B-Tree : 높이 대신 너비를 택하다
 
+<img src="{{site.url}}/assets/images/2026-01-18-why-db-index-uses-btree-and-bplustree/btree_vs_binary_tree_height_width.png" 
+     alt="btree_vs_binary_tree_height_width" 
+     style="display: block; margin: 2rem auto; max-width: 100%; height: auto;">
+
 B-Tree란 **하나의 노드에 여러 개의 키**를 저장하는 **다진 트리**입니다.(Multi-way Tree)
 
 하나의 노드에 많은 데이터를 담기 때문에 **트리의 높이를 극적으로 낮춥니다**. 따라서 수억 개의 데이터도 단 3~4 레벨의 높이로 표현할 수 있으므로, <strong class="highlight-text">몇 번의 디스크 I/O</strong>만으로 **조회 작업을 완료**할 수 있습니다.
@@ -120,9 +136,17 @@ B-Tree란 **하나의 노드에 여러 개의 키**를 저장하는 **다진 트
 
 ## 모든 노드가 데이터를 갖는다
 
+<img src="{{site.url}}/assets/images/2026-01-18-why-db-index-uses-btree-and-bplustree/btree_internal_and_leaf_node_data_storage.png" 
+     alt="btree_internal_and_leaf_node_data_storage" 
+     style="display: block; margin: 2rem auto; max-width: 100%; height: auto;">
+
 키(Key)와 해당 데이터(Data)가 모든 노드(루트,브랜치,리프)에 저장될 수 있습니다. 따라서 리프 노드까지 가지 않아도, 운좋으면  **중간 노드에서 조회 작업이 끝**날 수 있습니다. 그러나 이것이 항상 장점은 아닙니다.
 
 # B+Tree : B-Tree의 단점 보완한 구조
+
+<img src="{{site.url}}/assets/images/2026-01-18-why-db-index-uses-btree-and-bplustree/btree_to_bplustree_leaf_linking.png" 
+     alt="btree_to_bplustree_leaf_linking" 
+     style="display: block; margin: 2rem auto; max-width: 100%; height: auto;">
 
 B+Tree는 B-Tree의 장점을 계승하고, DB 환경에서 최적화된 개선을 가진 자료구조입니다.
 
@@ -131,11 +155,19 @@ B+Tree는 B-Tree의 장점을 계승하고, DB 환경에서 최적화된 개선�
 
 ## 1) 리프노드에만 저장, 브랜치 노드는 인덱스로만 → 너비는 더 넓고 높이는 더 낮게!
 
+<img src="{{site.url}}/assets/images/2026-01-18-why-db-index-uses-btree-and-bplustree/btree_vs_bplustree_internal_node_structure.png" 
+     alt="btree_vs_bplustree_internal_node_structure" 
+     style="display: block; margin: 2rem auto; max-width: 100%; height: auto;">
+
 브랜치 노드에 데이터를 저장하지 않으니, 동일한 노드 크기(페이지 크기)에 더 많은 키(경로 정보)를 저장할 수 있습니다.
 
 따라서 노드가 더 많이 분기해서 트리의 너비는 넓어지고, 높이는 더 낮아집니다. 이는 <strong class="highlight-text">디스크 I/O 횟수가 더 줄어들 수 있음</strong>을 의미합니다.
 
 ## 2) 리프 노드 연결리스트로 순차 스캔 → 범위 검색 성능 UP!
+
+<img src="{{site.url}}/assets/images/2026-01-18-why-db-index-uses-btree-and-bplustree/btree_range_query_traversal.png" 
+     alt="btree_range_query_traversal" 
+     style="display: block; margin: 2rem auto; max-width: 100%; height: auto;">
 
 모든 리프 노드들이 포인터로 서로 연결된 Linked List 구조를 가집니다. 이 구조 덕분에 B-Tree처럼 **트리를 다시 올라가지 않고**, <strong class="highlight-text">리프노드만 순차적으로 탐색</strong>하면 되므로, 훨씬 **범위 탐색**과 **정렬** 성능이 극대화됩니다.
 
@@ -145,6 +177,10 @@ ex. WHERE age BETWEEN 25 AND 50
 - 트리를 다시 탐색하지 않고 **연결된 리프노드를 따라 순차적으로 스캔**한다(→30→45→50)
 
 ## 거의 모든 현대 DBMS 표준 : MySQL InnoDB 엔진 예시
+
+<img src="{{site.url}}/assets/images/2026-01-18-why-db-index-uses-btree-and-bplustree/mysql-innodb-dbms-structure.png" 
+     alt="mysql-innodb-dbms-structure" 
+     style="display: block; margin: 2rem auto; max-width: 90%; height: auto;">
 
 - 프라이머리 인덱스(클러스터형 인덱스) : 리프노드에 실제 데이터 **레코드 전체**가 저장됩니다.
 - 세컨더리 인덱스(보조 인덱스) : 리프노드에는 데이터 주소 대신 **레코드의 PK** 값이 저장됩니다. 따라서 세컨더리 인덱스로 조회하면, 먼저 PK 값을 찾은 후, 이 PK 값으로 프라이머리 인덱스를 한번 더 조회해야 실제 데이터에 접근할 수 있습니다.
